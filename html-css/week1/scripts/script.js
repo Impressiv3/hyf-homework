@@ -1,1 +1,1 @@
-alert("Hello! I am an alert box!!");
+alert("The Site is under construction! Please check back later !");
