@@ -10,10 +10,19 @@
     --secondary-font-size: 0.8rem;
     --wildcard-font-size: 0.5rem;
 
-    --primary-clr: ;
+    --primary-clr-text: black;
+    --secondary-clr-text: grey;
     
-    
-  }
+}
+
+h1, h2, h3, h4, h5, h6, strong {
+    color: var(--primary-clr-text);
+}
+
+p, li, span, label, input, textarea {
+    color: var(--secondary-clr-text);
+    font-size: var(--primary-font-size);
+}
 
   pink-50 #fce4ec
   pink-100 #f8bbd0
