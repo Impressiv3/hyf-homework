@@ -1,1 +1,0 @@
-alert("The Site is under construction! Please check back later !");
