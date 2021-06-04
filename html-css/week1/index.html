@@ -6,31 +6,280 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://code.jquery.com/jquery-3.6.0.js"
-        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous" async></script>
-    <script src="scripts/script.js" async></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.css" async>
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+    <script src="https://use.fontawesome.com/1588cdbf80.js"></script>
     <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="shortcut icon" href="assets/images/fav.ico" type="image/x-icon">
-    <title>[ Bálint Szabad - CV ]</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="icon" href="assets/images/fav.ico" type="image/x-icon" />
+    <title>Bálint Szabad - CV</title>
 </head>
 
 <body>
-    <header>
-        <nav>
-        </nav>
-    </header>
+    <video autoplay muted loop id="myVideo">
+        <source src="assets/videos/bg-video.mp4" type="video/mp4">
+    </video>
     <main>
-        <section>
-            <h1>Hello</h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus corporis ea tempora quas, corrupti
-                deleniti odio? Perferendis eveniet exercitationem possimus quo minus consequuntur suscipit aut neque
-                earum pariatur? Aut labore aspernatur assumenda voluptatem sequi molestias harum numquam inventore
-                adipisci, iusto est dolor quam officia asperiores laboriosam? Inventore ipsa aspernatur tempora.</p>
+        <header class="style1">
+            <div class="profile-pic">
+                <img src="assets/images/BalintPhoto.jpg" alt="">
+            </div>
+            <div class="title">
+                <h1>Balint Szabad</h1>
+                <p>Front-End Developer</p>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href=""><i class="fa fa-facebook-square" aria-hidden="true"></i></a></li>
+                    <li><a href=""><i class="fa fa-linkedin-square" aria-hidden="true"></i></a></li>
+                    <li><a href=""><i class="fa fa-github-square" aria-hidden="true"></i></a></li>
+                    <li><a href=""><i class="fa fa-twitter-square" aria-hidden="true"></i></a></li>
+                </ul>
+            </nav>
+        </header>
+        <section id="Personlige">
+            <details class="style1">
+                <summary>
+                    <h4>Personlige oplysninger</h4>
+                </summary>
+                <div class="details-content">
+                    <h5>ADRESSE:</h5>
+                    <p>Absalonsgade 46, 4.TH,
+                        København, 1658, Danmark</p>
+                    <hr />
+                    <h5>TELEFON:</h5>
+                    <p>26576685</p>
+                    <hr />
+                    <h5>EMAIL:</h5>
+                    <p>balint.szabad@hotmail.com</p>
+                    <hr />
+                    <h5>FØDSELSDATO:</h5>
+                    <p>1983-06-17</p>
+                    <hr />
+                    <h5>NATIONALITET:</h5>
+                    <p>dansk - ungarsk dobbelt statsborger</p>
+                </div>
+            </details>
         </section>
+
+        <section id="Profil">
+            <details class="style1">
+                <summary>
+                    <h4>Profil</h4>
+                </summary>
+                <div class="details-content">
+                    <p>
+                        Både fra min uddannelse og min beskæftigelse har jeg erfaring for, at jeg er god til at bevare
+                        overblikket og være produktiv - selv under pres. Om mig selv som person kan jeg oplyse, at jeg
+                        er
+                        meget positiv og jeg kaster mig ud i nye udfordringer med stort initiativ og engagement. Jeg
+                        trives
+                        med at løse opgaver selvstændigt, men finder også stor tilfredsstillelse i at fungere i et team,
+                        hvor
+                        samarbejde og dialog vægtes højt. Jeg er positiv, humoristisk og udadvendt og dette er
+                        kvaliteter, jeg
+                        værdsætter at have med mig i min arbejdsdag.
+                    </p>
+                </div>
+            </details>
+        </section>
+
+        <section id="Sprog">
+            <details class="style1">
+                <summary>
+                    <h4>Sprog:</h4>
+                </summary>
+                <div class="details-content centered">
+
+                    <p>Engelsk</p>
+                    <div class="progress-bar">
+                        <div class="skill verygood">Ekspert</div>
+                    </div>
+
+                    <p>Dansk</p>
+                    <div class="progress-bar">
+                        <div class="skill good">Flydende</div>
+                    </div>
+
+                    <p>Ungarsk</p>
+                    <div class="progress-bar">
+                        <div class="skill excellent">Modersmål</div>
+                    </div>
+
+                </div>
+            </details>
+        </section>
+
+        <section id="Work">
+            <details class="style1">
+                <summary>
+                    <h4>Erhvervserfaring</h4>
+                </summary>
+                <div class="details-content">
+                    <div class="work-header">
+                        <h6>Service Tekniker</h6>
+                        <p>2018-04 - 2020-03</p>
+                    </div>
+                    <h5>Radisson Hospitality AB</h5>
+                    <p>Som Service Tekniker har jeg været ansvarlig for :</p>
+                    <ul>
+                        <li>Renholdelse og vedligeholdelse af bygninger og anlæg, herunder fejning,
+                            oprydning, pasning af grønne arealer samt renovation
+                        </li>
+                        <li>
+                            Klargøring af AV til møder, konferencer • og fester
+                        </li>
+                        <li>
+                            Løbende kontakt & kontrol med leverandører og serviceaftaler
+                        </li>
+                        <li>
+                            Udførelse, planlægning samt forebyggende og systematisk vedligeholdelse af
+                            hotellerne
+                        </li>
+                        <li>
+                            Dagligt tilsyn med tekniske installationer
+                        </li>
+
+                    </ul>
+                </div>
+                <hr />
+                <div class="details-content">
+                    <div class="work-header">
+                        <h6>Distribution Manager</h6>
+                        <p>2006-08 - 2018-02</p>
+                    </div>
+                    <h5>B.S. Distribution ApS</h5>
+                    <p>Ansvar for distributionen af mere end 10,000 produkter (daglig), i Amager og
+                        Christianshavn.
+                        ( Aviser, pakker, reklamer, offentlige breve fra kommunen, hospitaler og
+                        forsikringsselskaber )</p>
+                    <ul>
+                        <li>
+                            Ledelsesansvar for 20 medarbejder
+                        </li>
+                        <li>
+                            Planlægning og disponerings opgaver
+                        </li>
+                        <li>
+                            Analyse og optimering af distributionen
+                        </li>
+                        <li>
+                            Håndtering af reklamationer fra kunderne
+                        </li>
+                        <li>
+                            Varemodtagelse, lageropfølgning, bestilling
+                        </li>
+
+                    </ul>
+                </div>
+            </details>
+        </section>
+
+        <section id="Work">
+            <details class="style1">
+                <summary>
+                    <h4>Uddannelse</h4>
+                </summary>
+                <div class="details-content">
+                    <div class="work-header">
+                        <h6>Logistik og Supplychain Management</h6>
+                        <p>2000-09 - 2002-06</p>
+                    </div>
+                    <h5>Associate Degree [ Erhvervsfaglig uddannelse (EUV) ]</h5>
+                    <h6>Budapest / Ungarn</h6>
+                    <ul>
+                        <li>Planlægning og ledelse</li>
+                        <li> Dataanalyse og statistik</li>
+                        <li> Økonomi</li>
+                        <li>Indkøb, handel og salg</li>
+                        <li>Logistik og transportoptimering, operationsanalyse</li>
+                        <li>Smart mobility og transportmodellering</li>
+                    </ul>
+                </div>
+                <hr />
+                <div class="details-content">
+                    <div class="work-header">
+                        <h6>Computer Science / Informatik</h6>
+                        <p>2006-08 - 2018-02</p>
+                    </div>
+                    <h5>[ Gymnasial uddanelse (HHX) ]</h5>
+                    <h6>Szeged / Ungarn</h6>
+                    <ul>
+                        <li>
+                            Design og opbygning af kommunikationstekniske systemer routere, switche, firewalls og
+                            servere
+                        </li>
+                        <li>
+                            Programmering og test af software
+                        </li>
+                        <li>
+                            Systemudvikling
+                        </li>
+                        <li>
+                            IT-sikkerhed
+                        </li>
+                        <li>
+                            Databaser og kommunikationsteori
+                        </li>
+
+                    </ul>
+                </div>
+            </details>
+        </section>
+
+        <section id="Privat">
+            <details class="style1">
+                <summary>
+                    <h4>Privatliv</h4>
+                </summary>
+                <div class="details-content">
+                    <p>
+                        Jeg bor på Vesterbro samt med min kone Anna og vores datter, Sofie på 8. Jeg elsker at lære ny
+                        ting
+                        og jeg er meget nysgerrig. Min fritid bruger jeg på at udvikle min programering og
+                        3D-modellering
+                        kompentencer. Jeg er vild med at stå i køkkenet og nyder især at lave traditionel ungarsk mad og
+                        bage kager til mine venner og familien. Derud over er jeg passioneret handyman og bruger mange
+                        timer på gør det selv-projekter.
+                    </p>
+                </div>
+            </details>
+        </section>
+
+        <section id="Privat">
+            <details class="style1">
+                <summary>
+                    <h4>Fritidsinteresser</h4>
+                </summary>
+                <div class="details-hobby">
+                    <div class="hobby">
+                        <div class="hobby-item">
+                            <i class="fa fa-book" aria-hidden="true"></i>
+                            <h5>bøger</h5>
+                        </div>
+                    </div>
+
+                    <div class="hobby">
+                        <div class="hobby-item">
+                            <i class="fa fa-book" aria-hidden="true"></i>
+                            <h5>e-sports</h5>
+                        </div>
+                    </div>
+
+                    <div class="hobby">
+                        <div class="hobby-item">
+                            <i class="fa fa-plane" aria-hidden="true"></i>
+                            <h5>rejse</h5>
+                        </div>
+                    </div>
+
+                </div>
+            </details>
+        </section>
+
     </main>
     <footer>
+        <h6>Copyright 2021</h6>
     </footer>
 </body>
 

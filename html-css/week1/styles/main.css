@@ -1,0 +1,221 @@
+@import url("reset.css");
+
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+:root {
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(14px, calc(0.875rem + ((1vw - 3.2px) * 0.5)), 22px);
+    min-height: 0vw;
+    letter-spacing: .1rem;
+    word-spacing: .2rem;
+    color: white;
+}
+
+
+main {
+    width: clamp(320px, 100%, 1100px);
+    margin: 0 auto;
+    padding: 0.2rem 1rem 0.2rem 0.2rem;
+}
+
+
+h1 {font-size: 2rem;} h2 {font-size: 1.8rem;} h3 {font-size: 1.6rem;} h4 {font-size: 1.4rem;} h5 {font-size: 1.2rem;} 
+
+h1,h2,h3,h4,h5,h6 {
+    font-weight: 800;
+    padding: 0.2rem 0;
+}
+
+p {
+    color: white;
+    font-weight: 300;
+    padding: 0.5rem;
+}
+
+hr {
+    color : white;
+}
+
+video {
+    position: fixed;
+    z-index: -10;
+    object-fit: cover;
+    height:100%;
+    width: 100%;
+}
+
+.style1 {
+    border-radius: 1.3rem 0 1.3rem 0;
+    border: 3px solid white;
+    background: linear-gradient(125deg, hsl(225, 100%, 50%, 0.8), rgba(81, 99, 131, 0.4));
+    box-shadow: hsl(225, 100%, 50%, 0.9) 5px 5px, rgba(255, 255, 255, 0.4) 10px 10px;   
+}
+
+.style1:hover {
+    background: linear-gradient(125deg, hsl(218, 85%, 50% , 0.2), hsl(225, 100%, 50%, 0.8));
+    box-shadow: hsl(225, 100%, 50%) 5px 5px, rgba(255, 255, 255, 0.8) 10px 10px;  
+}
+
+.fa {
+    font-size: 2em !important;
+    padding: 0 .5rem;
+}
+
+header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0.5rem;
+    margin-bottom: 2rem;
+}
+
+.profile-pic img { 
+    width: 4rem;
+    border-radius: 50%;
+    border: 2px solid white;
+}
+
+.title {
+    display: flex;
+    flex-direction: column;
+}
+
+li {
+    display: inline-flex;
+}
+
+nav li a {
+    color: var(--pri-font-clr);
+    font-size: 1.4rem;
+    padding: 0.2rem;
+    border-radius: 50%;
+    box-shadow: rgb(255, 255, 255) 0px 50px 100px -20px, rgb(255, 255, 255) 0px 30px 60px -30px, rgb(252, 252, 252) 0px -2px 6px 0px inset;  
+}
+
+nav li a:hover,nav li a:active {
+    color: yellow;
+}
+
+section {
+    margin-bottom: 1rem;
+}
+
+details {
+    padding: 0 2rem;
+}
+
+details > summary {
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    cursor: pointer;
+    padding: 1rem;
+}
+
+details > summary::webkit-details-marker {
+    display: none;
+}
+
+details > summary::after {
+    display: inline-flex;
+    content: url(../assets/images/right-arrow.svg);
+    width: 1.5rem;
+    height: 1.5rem;
+    transition: transform 0.3s ease;
+}
+
+details[open] >summary::after {
+    transform: rotate(90deg);
+}
+
+.details-content {
+    padding: 0.5rem 1rem 2rem 2rem;
+}
+
+.progress-bar {
+    background-color: rgb(0, 0, 0);
+    width: 80%;
+    border-radius: 15px;
+}
+
+.skill {
+    background-color: yellow;
+    color: black;
+    padding: 1%;
+    text-align: right;
+    font-size: 20px;
+    border-radius: 15px;
+}
+
+.excellent {
+    width: 100%;
+}
+
+.verygood {
+    width: 90%;
+}
+
+.good {
+    width: 80%;
+}
+
+.centered {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.work-header {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 2px solid grey;
+}
+
+.details-content ul {
+    list-style-type: square;
+}
+
+.details-content li {
+    list-style: disc outside none;
+    display: list-item;
+    padding: 0.5rem 1rem;
+}
+
+.details-hobby {
+    display: flex;
+    justify-content: space-around;
+}
+
+.hobby {
+    display: flex;
+    justify-content: center;
+    padding: 1rem 2rem;
+}
+
+.hobby-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+footer {
+    position: relative;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    margin-top: 5rem;
+    background-color: black;
+    text-align: center;
+    border: 1px solid white;
+}
+
+
