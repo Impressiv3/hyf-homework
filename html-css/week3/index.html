@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="HyF Week 3 Homework" content="HyF HTML/CSS/JS Form" />
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.css">
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Merriweather' rel='stylesheet'>
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="main.css">
+    <link rel="icon" href="/assets/images/favicon/favicon.ico" type="image/x-icon" />
+    <title>HyF-Week3-Homework</title>
+</head>
+
+<body>
+    <div class="page-wrapper">
+        <header>
+            <div class="logo-container">
+                <img src="/assets/images/logo.png" alt="">
+                <h1>Custom TailoR</h1>
+            </div>
+            <nav class="nav">
+                <ul class="nav-list">
+                    <li class="nav-list-item"><a href="#">Home</a></li>
+                    <li class="nav-list-item"><a href="#">Shop</a></li>
+                    <li class="nav-list-item"><a href="#">Contact</a></li>
+                    <li class="nav-list-item"><a href="#">FAQ</a></li>
+                    <li class="nav-list-item menu-button"><i class="fa fa-bars" aria-hidden="true"></i>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <div class="form-container">
+                <form class="regForm" id="regForm">
+                    <h1>Sign-up to yourcustomtailor.com !</h1>
+                    <div class="form-progress-bar">
+                        <span class="step"></span>
+                        <span class="step"></span>
+                        <span class="step"></span>
+                        <span class="step"></span>
+                        <div class="progress-text">
+                            <div class="progress-text-tab">
+                                <h1>STEP 1/4</h1>
+                                <p>Tell us who you are.</p>
+                            </div>
+                            <div class="progress-text-tab">
+                                <h1>STEP 2/4</h1>
+                                <p>How can we reach you ?</p>
+                            </div>
+                            <div class="progress-text-tab">
+                                <h1>STEP 3/4</h1>
+                                <p>Tell us about your preferences.</p>
+                            </div>
+                            <div class="progress-text-tab">
+                                <h1>STEP 4/4</h1>
+                                <p>Payment / Checkout</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-tab">
+                        <p>We can not wait to help you improve your life-style and gain the attention from people around
+                            you!
+                            Sign up below to save up to 70% on apparel, hand-bags and cosmetics. Our agents are busy
+                            picking the
+                            best offers that match your preferences and style. Every week we will send you a hand-picked
+                            selection
+                            - we just need to know a few details about your first...
+                        </p>
+                        <hr>
+                        <h2>Fields marked with * are required.</h2>
+                        <label for="firstName">First name*</label>
+                        <input type="text" id="firstName" name="firstName" placeholder="First name..."
+                            pattern="[A-Za-z]+" required>
+                        <label for="lastName">Last name*</label>
+                        <input type="text" id="lastName" name="lastName" placeholder="Last name..." pattern="[A-Za-z]+"
+                            required>
+                        <label for="country">Choose your country*</label>
+                        <select id="country" name="country" required>
+                            <option hidden value="">Select a country...</option>
+                            <option value="denmark">Denmark</option>
+                            <option value="sweden">Sweden</option>
+                            <option value="norway">Norway</option>
+                            <option value="germany">Germany</option>
+                        </select>
+                        <label for="address">Address*</label>
+                        <input type="text" id="address" name="address" placeholder="Street / House number" required>
+                        <label for="postcode">Post code*</label>
+                        <input type="text" id="postcode" name="postcode" placeholder="ZIP / Postal code"
+                            pattern="^\d{4}$" title="Only 4 digits are allowed!" required>
+                        <label for="profile-description">Profile description</label>
+                        <p>Please provide a small description of yourself to be displayed on our social community pages.
+                        </p>
+                        <textarea id="profile-description" name="profile-description" rows="4" cols="60"
+                            maxlength="500">
+                        </textarea>
+                        <hr>
+                        <p>Use the same address for billing and shipping? Uncheck below to fill out a separate billing
+                            address.
+                        </p>
+                        <label for="shippingCheckbox">Shipping address:</label>
+                        <input type="checkbox" id="shippingCheckbox" name="shippingCheckbox" checked>
+                        <div class="shipping-tab">
+                            <p>Please fill out the form if you want the product to be shipped to a different address.
+                            </p>
+                            <h1>Shipping address:</h1>
+                            <hr>
+                            <label for="shipping_firstName">First name</label><br>
+                            <input type="text" id="shipping_firstName" name="shipping_firstName"
+                                placeholder="First name..." value="">
+                            <label for="shipping_lastName">Last name</label><br>
+                            <input type="text" id="shipping_lastName" name="shipping_lastName"
+                                placeholder="Last name..." value="">
+                            <label for="shipping_country">Choose your country</label>
+                            <select id="shipping_country" name="shipping_country">
+                                <option hidden value="">Select a country...</option>
+                                <option value="denmark">Denmark</option>
+                                <option value="sweden">Sweden</option>
+                                <option value="norway">Norway</option>
+                                <option value="germany">Germany</option>
+                            </select>
+                            <label for="shipping_address">Address</label><br>
+                            <input type="text" id="shipping_address" name="shipping_address"
+                                placeholder="Street / House number" value="">
+                            <label for="shipping_postcode">Post code</label><br>
+                            <input type="number" id="shipping_postcode" name="shipping_postcode"
+                                placeholder="ZIP / Postal code" value="">
+                        </div>
+                    </div>
+                    <div class="form-tab">
+                        <h2>Fields marked with * are required.</h2>
+                        <label for="phone">Enter your phone number*</label>
+                        <input type="tel" id="phone" name="phone" placeholder="Example: 26576688" pattern="^\d{8,10}$"
+                            title="Only numbers. Min. 8 but max. 10 digits." required>
+                        <label for="email1">Enter your email*</label>
+                        <input type="email" id="email1" name="email" placeholder="your@email"
+                            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" title="Example: somebody@hotmail.com"
+                            required>
+                        <label for="email2">Re-enter email*</label>
+                        <input type="email" id="email2" name="email" placeholder="your@email"
+                            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" title="Repeat email address" required>
+
+                        <label for="password1">Enter password*</label>
+                        <input type="password" id="password1" name="password1" placeholder="Please enter a password..."
+                            pattern="(?=.*[a-z])(?=.*[A-Z]).{10,}"
+                            title="One uppercase and lowercase letter, and at least 10 or more characters" required>
+
+                        <label for="password2">Re-enter password*</label>
+                        <input type="password" id="password2" name="password2"
+                            placeholder="Please re-enter the password..." pattern="(?=.*[a-z])(?=.*[A-Z]).{10,}"
+                            title="One uppercase and lowercase letter, and at least 10 or more characters" required>
+                        <br>
+                        <hr>
+                        <h1>I want to sign up for the newsletter.</h1>
+                        <label for="sub-weekly">Weekly</label>
+                        <input type="radio" id="sub-weekly" name="subscription" required checked>
+                        <label for="sub-monthly">Monthly</label>
+                        <input type="radio" id="sub-monthly" name="subscription">
+                        <label for="no-sub">No, thank you</label>
+                        <input type="radio" id="no-sub" name="subscription">
+                    </div>
+                    <div class="form-tab">
+                        <h2>What kind of items are you interested in offers on ?</h2>
+                        <label for="apparel">Apparel</label>
+                        <input type="checkbox" name="preferences" id="apparel">
+                        <label for="accessories">Accessories</label>
+                        <input type="checkbox" name="preferences" id="accessories">
+                        <label for="handbags">Handbags</label>
+                        <input type="checkbox" name="preferences" id="handbags">
+                        <label for="jewelry">Jewelry</label>
+                        <input type="checkbox" name="preferences" id="jewelry">
+                        <label for="shoes">Shoes</label>
+                        <input type="checkbox" name="preferences" id="shoes">
+                        <hr>
+                        <h2>Choose the image that best resemble your style</h2>
+                        <div class="images-container">
+                            <div class="images-container-item">
+                                <img src="/assets/images/summer.jpg" alt="">
+                                <label for="item-1"></label>
+                                <input type="checkbox" id="item-1">
+                            </div>
+                            <div class="images-container-item">
+                                <img src="/assets/images/accesories.jpg" alt="">
+                                <label for="item-2"></label>
+                                <input type="checkbox" id="item-2">
+                            </div>
+                            <div class="images-container-item">
+                                <img src="/assets/images/sweatshirt.jpg" alt="">
+                                <label for="item-3"></label>
+                                <input type="checkbox" id="item-3">
+                            </div>
+                            <div class="images-container-item">
+                                <img src="/assets/images/dress.jpg" alt="">
+                                <label for="item-4"></label>
+                                <input type="checkbox" id="item-4">
+                            </div>
+                            <div class="images-container-item">
+                                <img src="/assets/images/shopping.jpg" alt="">
+                                <label for="item-5"></label>
+                                <input type="checkbox" id="item-5">
+                            </div>
+                            <div class="images-container-item">
+                                <img src="/assets/images/boots.jpg" alt="">
+                                <label for="item-6"></label>
+                                <input type="checkbox" id="item-6">
+                            </div>
+                            <div class="images-container-item">
+                                <img src="/assets/images/casual.jpg" alt="">
+                                <label for="item-7"></label>
+                                <input type="checkbox" id="item-7">
+                            </div>
+                            <div class="images-container-item">
+                                <img src="/assets/images/young.jpg" alt="">
+                                <label for="item-8"></label>
+                                <input type="checkbox" id="item-8">
+                            </div>
+
+                        </div>
+                        <hr>
+                    </div>
+                    <div class="form-tab">
+                        <h1>Please fill in your payment data</h1>
+                        <hr>
+                        <h2>Fields marked with * are required.</h2>
+                        <div class="form-item">
+                            <label for="cardName">Name on card*</label><br>
+                            <input type="text" id="cardName" name="cardName" placeholder="Card owners name..."
+                                pattern="[A-Za-z]+" title="Name on card" required>
+                        </div>
+                        <label for="cardType">Card type*</label>
+                        <select id="cardType" name="cardType" required>
+                            <option hidden value="">Select your card type...</option>
+                            <option value="visa">Visa</option>
+                            <option value="mastercard">Mastercard</option>
+                            <option value="dankort">Dankort</option>
+                        </select>
+                        <div class="form-item">
+                            <label for="cardNumber">Card Number*</label>
+                            <input type="text" id="cardNumber" pattern="\d{16,16}" required
+                                title="Only numbers. Must be 16 digits">
+                        </div>
+                        <div class="form-item">
+                            <label>Expiration Date*</label>
+                            <select id="exp-month" name="exp-month" required>
+                                <option value="" hidden selected>Month</option>
+                                <option value="01">January</option>
+                                <option value="02">February </option>
+                                <option value="03">March</option>
+                                <option value="04">April</option>
+                                <option value="05">May</option>
+                                <option value="06">June</option>
+                                <option value="07">July</option>
+                                <option value="08">August</option>
+                                <option value="09">September</option>
+                                <option value="10">October</option>
+                                <option value="11">November</option>
+                                <option value="12">December</option>
+                            </select>
+                            <select id="exp-year" name="exp-year" required>
+                                <option value="" hidden selected>Year</option>
+                                <option value="16"> 2016</option>
+                                <option value="17"> 2017</option>
+                                <option value="18"> 2018</option>
+                                <option value="19"> 2019</option>
+                                <option value="20"> 2020</option>
+                                <option value="21"> 2021</option>
+                            </select>
+                        </div>
+                        <label for="ccvNumber">CCV*</label>
+                        <input type="text" id="ccvNumber" pattern="\d{3,3}" required>
+                    </div>
+                    <div class="form-buttons">
+                        <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
+                        <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
+                    </div>
+                </form>
+            </div>
+        </main>
+    </div>
+    <script src="main.js"></script>
+</body>
+
+</html>

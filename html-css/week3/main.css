@@ -1,0 +1,355 @@
+:root {
+    font-family: "Merriweather", sans-serif;
+    font-size: 13px;
+    line-height: 2rem;
+}
+
+body {
+    background: rgb(2, 0, 36);
+    background: linear-gradient(133deg, rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 14%, rgba(231, 0, 255, 1) 100%);
+    background-attachment: fixed;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 900;
+}
+
+h1 {
+    font-size: 1.6rem;
+}
+
+h2 {
+    font-size: 1.4rem;
+}
+
+h3 {
+    font-size: 1.3rem;
+}
+
+h4 {
+    font-size: 1.2rem;
+}
+
+p {
+    padding-bottom: 1rem;
+}
+
+.page-wrapper {
+    margin: 0 auto;
+    width: clamp(336px, 100%, 1080px);
+    display: flex;
+    flex-flow: column;
+    color: white;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem;
+    margin-bottom: 2%;
+    border-top: 1px solid white;
+    border-bottom: 1px solid white;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    color: yellow;
+}
+
+.logo-container img {
+    width: 2.6rem;
+    background-color: yellow;
+    border-radius: 50%;
+    margin: 0 2rem;
+    cursor: pointer;
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 900;
+}
+
+.nav .nav-list-item {
+    color: white;
+    display: inline;
+}
+
+.nav .nav-list-item:not(.menu-button) {
+    color: white;
+    display: none;
+}
+
+.nav .nav-list-item:hover,
+.nav .nav-list-item:active {
+    color: yellow;
+}
+
+.nav .nav-list-item a {
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    color: inherit;
+    padding: 0 2rem;
+}
+
+.menu-button button {
+    background-color: transparent;
+    border: none;
+    padding: 0.5rem;
+    cursor: pointer;
+}
+
+.fa {
+    font-size: 2rem;
+    color: white;
+    padding: 0.5rem;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+}
+
+hr {
+    height: 0;
+    border-top: 2px solid white;
+    margin-bottom: 1rem;
+}
+
+/* FORM */
+
+.form-container {
+    width: 100%;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+    border-radius: 1rem;
+    background-color: hsla(238, 100%, 50%, 0.3);
+}
+
+.regForm {
+    margin: 0 auto;
+    padding: 2rem;
+    width: 100%;
+}
+
+label {
+    font-family: "Montserrat", sans-serif;
+    font-size: 1.4rem;
+}
+
+select {
+    margin-bottom: 1rem;
+    padding: 0.6rem;
+    color: black;
+    background-color: white;
+    border: 1px solid white;
+    width: 100%;
+    font-family: inherit;
+    font-size: inherit;
+    cursor: pointer;
+    line-height: inherit;
+}
+
+select.invalid {
+    margin-bottom: 1rem;
+    padding: 0.6rem;
+    color: black;
+    background-color: rgba(236, 0, 0, 0.925);
+    border: 1px solid red;
+    width: 100%;
+    font-family: inherit;
+    font-size: inherit;
+    cursor: pointer;
+    line-height: inherit;
+}
+
+input {
+    margin-bottom: 1rem;
+    padding: 10px;
+    width: 100%;
+    font-size: 17px;
+    font-family: "Montserrat", sans-serif;
+    border: 1px solid #aaaaaa;
+}
+
+input.invalid {
+    background-color: #c00000;
+    border: 3px solid white;
+}
+
+input[type="checkbox"] {
+    width: 1.6rem;
+    height: 1.6rem;
+    margin: 1rem;
+}
+
+input[type="radio"] {
+    width: 2rem;
+    height: 20px;
+    margin: 3rem 1.1rem 3rem 0.3rem;
+}
+
+
+textarea {
+    width: 100%;
+    resize: none;
+    margin-bottom: 3rem;
+}
+
+.form-tab {
+    display: none;
+}
+
+.form-progress-bar {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.progress-text-tab {
+    display: none;
+}
+
+.progress-text-tab.active {
+    display: block;
+}
+
+.step {
+    height: 2.1rem;
+    width: 2.1rem;
+    margin: 0 0.5rem;
+    background-color: #dadada;
+    border: none;
+    border-radius: 50%;
+    display: inline-block;
+    opacity: 0.6;
+}
+
+.step.active {
+    background-color: red;
+    border: 3px solid white;
+    opacity: 1;
+}
+
+.step.finished {
+    background-color: rgb(0, 170, 0);
+    opacity: 1;
+}
+
+.form-item {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: baseline;
+}
+
+.form-buttons {
+    display: flex;
+    justify-content: flex-end;
+}
+
+button {
+    display: inline;
+    width: 10rem;
+    background-color: hsla(238, 100%, 50%, 0.3);
+    color: white;
+    border: 1px solid white;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 900;
+    text-align: center;
+    text-decoration: none;
+    font-size: 1.3rem;
+    border-radius: 0.3rem;
+    padding: 1rem 2rem;
+    margin: 4px 2px;
+    cursor: pointer;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+}
+
+button:hover {
+    background-color: #4caf50;
+}
+
+#shippingCheckbox:checked ~ .shipping-tab {
+    display: none;
+}
+
+.images-container {
+    display: grid;
+    grid-gap: 1rem 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    justify-content: space-evenly;
+    padding: 1.5rem;
+    margin-top: 1rem;
+}
+
+.images-container-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid white;
+}
+
+label {
+    margin-right: 1rem;
+}
+
+.images-container img {
+    width: 100%;
+}
+
+#cardName {
+    width: 300px;
+}
+
+#cardType {
+    width: 160px;
+}
+
+#cardNumber {
+    width: 300px;
+}
+
+#exp-month {
+    width: 120px;
+    margin-right: 2rem;
+}
+
+#exp-year {
+    width: 120px;
+}
+
+#ccvNumber {
+    width: 50px;
+}
+
+/*  md ≥ 768px */
+@media screen and (min-width: 768px) {
+    :root {
+        font-size: 14px;
+    }
+
+    .nav .nav-list-item {
+        display: none;
+    }
+
+    .nav .nav-list-item:not(.menu-button) {
+        display: inline;
+    }
+}
+
+/* lg ≥ 1024px */
+@media screen and (min-width: 1024px) {
+    :root {
+        font-size: 16px;
+    }
+}
