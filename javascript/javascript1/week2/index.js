@@ -32,3 +32,18 @@ getFullname("Benjamin", "Hughes", true, false); -> would return: Lady Benjamin H
 
 /*================================================================*/
 
+
+
+/* TASK 2 - Event application */
+
+function getEventWeekday(daysLeftTillEvent) {
+    const daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturay"];
+    let currentDate = new Date();
+    let result = currentDate.getDay() + (daysLeftTillEvent % 7);
+
+    console.log("The event will take place on " + `${daysOfWeek[result]}` + ".");
+}
+
+getEventWeekday(9);
+
+/*================================================================*/
