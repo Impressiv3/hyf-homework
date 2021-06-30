@@ -79,6 +79,39 @@ suggestClothingBasedOnWeather(12);
 
 /* TASK 4 - Student manager */
 
+const class07Students = [];
+function addStudentToClass(studentName) {
+    if (!studentName) return;                /* If no student name is given return */
+    if (studentName == "queen") {            /* If student is queen add it to array */
+        class07Students.push(studentName);
+    } else {
+        if (class07Students.length >= 6) {           /* If there are more than 6 students log msg */
+            console.log("Cannot add more than 6 students to class 07.");
+        }
+        if (class07Students.includes(studentName)) {          /* If  student is already in the array log msg*/
+            console.log("Student: " + studentName + " is already in the class");
+        } else {
+            class07Students.push(studentName);    /* add student to array */
+        }
+    }
+}
+
+function getNumberOfStudents() {
+    console.log(class07Students.length);
+}
+
+/* TEST CASE */
+addStudentToClass("First Student");
+addStudentToClass("Second Student");
+addStudentToClass("Third Student");
+addStudentToClass("Fourth Student");
+addStudentToClass("Fifth Student");
+addStudentToClass("Sixth Student");
+addStudentToClass("First Student");
+addStudentToClass("queen");
+
+getNumberOfStudents();
+console.dir(class07Students);
 
 
 /*================================================================*/
