@@ -10,6 +10,12 @@ function getFullname(firstname, surname, useFormalName) {
 }
 
 getFullname("Benjamin", "Hughes", true);
+console.log(getFullname);
+
+const fullname1 = getFullname("Balint", "Szabad", true);
+console.log(fullname1);
+const fullname2 = getFullname("Donald", "Trump", false);
+console.log(fullname2);
 
 /* ANSWER for the QUESTION : But what if the person is a woman? Describe how you would fix the getFullname so it also works for women */
 /* 1. I'd create another param something like isMale.
@@ -45,5 +51,34 @@ function getEventWeekday(daysLeftTillEvent) {
 }
 
 getEventWeekday(9);
+
+/*================================================================*/
+
+
+/* TASK 3 - Weather wear */
+
+const clothing = {
+    hot: ["Swimwear", "Flip-Flops", "Sunglasses"],
+    cold: ["Boots", "Jacket", "Scarf"]
+}
+
+function suggestClothingBasedOnWeather(currentTemperature) {
+    if (currentTemperature <= 20) {
+        console.log("The weather is COLD, you should be wearing: " + clothing.cold.join(" ") + ".");
+    } else {
+        console.log("The weather is HOT, you should be wearing: " + clothing.hot.join(" ") + ".");
+    }
+}
+
+suggestClothingBasedOnWeather(22);
+suggestClothingBasedOnWeather(12);
+
+
+/*================================================================*/
+
+
+/* TASK 4 - Student manager */
+
+
 
 /*================================================================*/
