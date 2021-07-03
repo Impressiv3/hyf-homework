@@ -10,7 +10,7 @@ function getFullname(firstname, surname, useFormalName) {
 }
 
 getFullname("Benjamin", "Hughes", true);
-console.log(getFullname);
+
 
 const fullname1 = getFullname("Balint", "Szabad", true);
 console.log(fullname1);
@@ -44,13 +44,12 @@ getFullname("Benjamin", "Hughes", true, false); -> would return: Lady Benjamin H
 
 function getEventWeekday(daysLeftTillEvent) {
     const daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturay"];
-    let currentDate = new Date();
-    let result = currentDate.getDay() + (daysLeftTillEvent % 7);
-
+    const currentDate = new Date();
+    const result = (currentDate.getDay() + daysLeftTillEvent) % 7;
     console.log("The event will take place on " + `${daysOfWeek[result]}` + ".");
 }
 
-getEventWeekday(9);
+getEventWeekday(8);
 
 /*================================================================*/
 
@@ -112,6 +111,55 @@ addStudentToClass("queen");
 
 getNumberOfStudents();
 console.dir(class07Students);
+
+
+/*================================================================*/
+
+/* TASK 4 - Candy helper */
+
+const candyPrices = {
+    Sweet: 0.5,
+    Chocolate: 0.7,
+    Toffee: 1.1,
+    Chewing_gum: 0.03
+}
+
+let boughtCandyPrices = [];
+let amountToSpend = Math.random() * 100;
+
+function addCandy(candyType, weight) {
+
+    if (canBuyMoreCandy) {
+        boughtCandyPrices.push(candyPrices[candyType] * weight);
+    } else {
+        return;
+    }
+
+    console.log(boughtCandyPrices);
+}
+
+addCandy("Sweet", 2);
+
+addCandy("Toffee", 10);
+
+addCandy("Chocolate", 5);
+
+function canBuyMoreCandy() {
+    let total = 0;
+    boughtCandyPrices.forEach(element => (total = total + element));
+
+    if (total > amountToSpend) {
+        console.log("Enough candy for you!");
+        return false;
+    }
+    else {
+        console.log("You can buy more, so please do!");
+        return true;
+    }
+}
+
+canBuyMoreCandy();
+
 
 
 /*================================================================*/
