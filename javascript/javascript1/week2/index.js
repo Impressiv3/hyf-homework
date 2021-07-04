@@ -13,9 +13,9 @@ getFullname("Benjamin", "Hughes", true);
 
 
 const fullname1 = getFullname("Balint", "Szabad", true);
-console.log(fullname1);
+console.log("%c" + fullname1 + "%c", "color: white; background-color: black; font-size: 25px");
 const fullname2 = getFullname("Donald", "Trump", false);
-console.log(fullname2);
+console.log("%c" + fullname2 + "%c", "color: white; background-color: black; font-size: 25px");
 
 /* ANSWER for the QUESTION : But what if the person is a woman? Describe how you would fix the getFullname so it also works for women */
 /* 1. I'd create another param something like isMale.
@@ -25,7 +25,7 @@ console.log(fullname2);
     It would look something like this:
 
     function getFullname(firstname, surname, useFormalName, isMale) {
-        let formaleName = "Lord";  IT WOULD BE THE DEFAULT VALUE that I initialize the variable with.
+        const formaleName = "Lord";  IT WOULD BE THE DEFAULT VALUE that I initialize the variable with.
         if (isMale && isMale === false){               IF isMale boolean is given and it's value is false,change formalName's value to "Lady".
         formalName = "Lady";
         }
@@ -46,7 +46,7 @@ function getEventWeekday(daysLeftTillEvent) {
     const daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturay"];
     const currentDate = new Date();
     const result = (currentDate.getDay() + daysLeftTillEvent) % 7;
-    console.log("The event will take place on " + `${daysOfWeek[result]}` + ".");
+    console.log("%cThe event will take place on " + `${daysOfWeek[result]}` + ".", "color: white; background-color: black; font-size: 25px");
 }
 
 getEventWeekday(8);
@@ -59,13 +59,13 @@ getEventWeekday(8);
 const clothing = {
     hot: ["Swimwear", "Flip-Flops", "Sunglasses"],
     cold: ["Boots", "Jacket", "Scarf"]
-}
+};
 
 function suggestClothingBasedOnWeather(currentTemperature) {
     if (currentTemperature <= 20) {
-        console.log("The weather is COLD, you should be wearing: " + clothing.cold.join(" ") + ".");
+        console.log("%cThe weather is COLD, you should be wearing: " + clothing.cold.join(" ") + ".", "color: white; background-color: black; font-size: 25px");
     } else {
-        console.log("The weather is HOT, you should be wearing: " + clothing.hot.join(" ") + ".");
+        console.log("%cThe weather is HOT, you should be wearing: " + clothing.hot.join(" ") + ".", "color: white; background-color: black; font-size: 25px");
     }
 }
 
@@ -79,24 +79,25 @@ suggestClothingBasedOnWeather(12);
 /* TASK 4 - Student manager */
 
 const class07Students = [];
+
 function addStudentToClass(studentName) {
-    if (!studentName) return;                /* If no student name is given return */
-    if (studentName == "queen") {            /* If student is queen add it to array */
+    if (!studentName) return; /* If no student name is given return */
+    if (studentName == "queen") { /* If student is queen add it to array */
         class07Students.push(studentName);
     } else {
-        if (class07Students.length >= 6) {           /* If there are more than 6 students log msg */
-            console.log("Cannot add more than 6 students to class 07.");
+        if (class07Students.length >= 6) { /* If there are more than 6 students log msg */
+            console.log("%cCannot add more than 6 students to class 07.", "color: white; background-color: black; font-size: 25px");
         }
-        if (class07Students.includes(studentName)) {          /* If  student is already in the array log msg*/
-            console.log("Student: " + studentName + " is already in the class");
+        if (class07Students.includes(studentName)) { /* If  student is already in the array log msg*/
+            console.log("%cStudent: " + studentName + " is already in the class", "color: white; background-color: black; font-size: 25px");
         } else {
-            class07Students.push(studentName);    /* add student to array */
+            class07Students.push(studentName); /* add student to array */
         }
     }
 }
 
 function getNumberOfStudents() {
-    console.log(class07Students.length);
+    console.log("%cThere are: " + class07Students.length + " students in class07. %c", "color: white; background-color: black; font-size: 30px");
 }
 
 /* TEST CASE */
@@ -110,7 +111,7 @@ addStudentToClass("First Student");
 addStudentToClass("queen");
 
 getNumberOfStudents();
-console.dir(class07Students);
+console.table(class07Students);
 
 
 /*================================================================*/
@@ -122,20 +123,32 @@ const candyPrices = {
     Chocolate: 0.7,
     Toffee: 1.1,
     Chewing_gum: 0.03
-}
+};
 
-let boughtCandyPrices = [];
-let amountToSpend = Math.random() * 100;
+const boughtCandyPrices = [];
+const amountToSpend = Math.random() * 100;
 
 function addCandy(candyType, weight) {
-
     if (canBuyMoreCandy) {
         boughtCandyPrices.push(candyPrices[candyType] * weight);
     } else {
         return;
     }
+}
 
-    console.log(boughtCandyPrices);
+function canBuyMoreCandy() {
+    let total = 0;
+    /* Instead of a regular for loop I'm going to use forEach */
+    boughtCandyPrices.forEach(element => (total = total + element));
+
+    if (total > amountToSpend) {
+        console.log("%cEnough candy for you!", "color: white; background-color: black; font-size: 25px");
+        return false;
+    } else {
+        console.log(total);
+        console.log("%cYou can buy more, so please do!", "color: white; background-color: black; font-size: 25px");
+        return true;
+    }
 }
 
 addCandy("Sweet", 2);
@@ -144,22 +157,7 @@ addCandy("Toffee", 10);
 
 addCandy("Chocolate", 5);
 
-function canBuyMoreCandy() {
-    let total = 0;
-    boughtCandyPrices.forEach(element => (total = total + element));
-
-    if (total > amountToSpend) {
-        console.log("Enough candy for you!");
-        return false;
-    }
-    else {
-        console.log("You can buy more, so please do!");
-        return true;
-    }
-}
-
 canBuyMoreCandy();
-
 
 
 /*================================================================*/
