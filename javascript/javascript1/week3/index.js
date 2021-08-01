@@ -88,3 +88,36 @@ logOutSeriesText(seriesDurations);
 /* =========================================== */
 
 
+/* TASK 4 - Save Notes */
+
+const notes = [];
+
+function saveNote(id, content){
+    notes.push({ id : id, content : content});
+}
+
+saveNote(1, "Pick up groceries");
+saveNote(2, "Do laundry");
+console.log(notes);
+
+function getNote(id) {
+    for ( let i = 0; i < notes.length; i++){
+        if (notes[i].id == id){
+            console.log(notes[i].content);
+        }
+    }
+}
+  
+const firstNote = getNote(2);
+
+function logOutNotesFormatted() {
+    for ( let i = 0; i < notes.length; i++){
+      console.log("The note with id: " + notes[i].id + ", has the following note text: " + notes[i].content + ".");
+    }
+    
+}
+  
+  logOutNotesFormatted(); // should log out the text below
+
+
+/* =========================================== */
