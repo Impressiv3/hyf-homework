@@ -20,3 +20,22 @@ names.splice(names.indexOf(nameToRemove), 1);
 console.table(names);
 
 /* =========================================== */
+
+/* TASK 2 - When will we be there?? */
+
+const travelInformation = {
+    speed: 50,  /* KM/H */
+    destinationDistance: 432, /* KM */
+};
+
+const travelTime = timeTillDestination(travelInformation);
+
+function timeTillDestination() {
+    let result = 0;
+    result = (travelInformation.destinationDistance / travelInformation.speed) * 60;
+    return (Math.floor(result / 60) + " hours and " + Math.floor(result % 60) + " minutes.");
+}
+
+console.log(travelTime)
+
+/* =========================================== */
