@@ -12,8 +12,10 @@ _________________________
 
 /*================[ TASK 1. - Find the shortest word ]================== */
 
-const danishWords = ['bil', 'plante', 'kaffe', 'bog', 'ø', 'planetarium'];
-let shortestWord = '';
+// Write a function that finds the shortest word of an array of words.
+
+const danishWords = ["bil", "plante", "kaffe", "bog", "ø", "planetarium"];
+let shortestWord = "";
 let initialShortestWordLength = 0;
 function findShortestWord(wordsToCheck) {
   shortestWord = wordsToCheck.reduce((currentWord, shortest) => {
@@ -25,7 +27,44 @@ function findShortestWord(wordsToCheck) {
 }
 
 findShortestWord(danishWords);
-console.log(shortestWord);
+console.log(`The sortest word is : ${shortestWord}`);
+
+/*=======================================================================*/
+
+/*===========[ TASK 2. - Find and count the Danish letters ]============ */
+
+// Find the individual and the total number of Danish letters in a string.
+
+const danishString1 = "Jeg har en blå bil";
+const danishString2 = "Blå grød med røde bær";
+const danishLetters = ["æ", "ø", "å"];
+let danishLetterCount = {
+  total: 0,
+  æ: 0,
+  ø: 0,
+  å: 0,
+};
+
+function danishLetterCounter(stringToCheck) {
+  // Reset counter to default values
+  for (const key in danishLetterCount) {
+    `${key}: ${danishLetterCount[key] === 0}`;
+  }
+  // Check how many times we can split the string @ given character
+  danishLetters.forEach((danishLetter) => {
+    let amountToIncreaseWith = 0;
+    amountToIncreaseWith = stringToCheck.split(danishLetter).length - 1;
+    danishLetterCount[danishLetter] += amountToIncreaseWith;
+    danishLetterCount["total"] += amountToIncreaseWith;
+  });
+  console.log(`Sentence to check : ${stringToCheck}`);
+  for (const key in danishLetterCount) {
+    console.log(`${key}: ${danishLetterCount[key]}`);
+  }
+}
+
+danishLetterCounter(danishString1);
+danishLetterCounter(danishString2);
 
 /*=======================================================================*/
 
