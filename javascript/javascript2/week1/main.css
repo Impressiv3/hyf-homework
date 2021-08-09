@@ -1,16 +1,10 @@
-body {
-  font-family: "Open Sans", sans-serif;
-  background-color: #f9fbfd;
+:root {
+  font-family: "Montserrat", sans-serif;
 }
 
-* {
-  box-sizing: border-box;
-}
-
-body,
-h1,
-h2 {
-  margin: 0;
+h1 {
+  color: black;
+  text-align: center;
 }
 
 ul {
