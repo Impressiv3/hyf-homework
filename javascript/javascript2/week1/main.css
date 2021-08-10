@@ -16,9 +16,9 @@ body {
   width: 100vw;
   height: 100vh;
   display: flex;
-  justify-content: center;
   align-items: center;
   flex-direction: column;
+  margin: 10% 5%;
   background-image: url("pokemon-background.jpg");
   background-repeat: no-repeat;
   background-position: right top;
@@ -35,7 +35,8 @@ article {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background: linear-gradient(to top, rgba(255, 255, 255, 0.8) 1%, rgba(255, 255, 255, 0.9) 100%);
+  margin-bottom: 200px;
+  padding-top: 20%;  background: linear-gradient(to top, rgba(255, 255, 255, 0.8) 1%, rgba(255, 255, 255, 0.9) 100%);
   border: 1px solid rgb(182, 182, 182);
   border-radius: 12px;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
