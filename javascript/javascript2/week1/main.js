@@ -118,7 +118,7 @@ function addOnClickEventListenerToElement() {
 }
 
 function addOnMouseEnterEventListenerToElement() {
-  submitButton.addEventListener("click", submitForm);
+  submitButton.removeEventListener("click", submitForm);
   realName.addEventListener("mouseenter", submitForm);
   realName.removeEventListener("input", submitForm);
 }
@@ -144,10 +144,8 @@ addOnClickEventListenerToElement();
 //#region TASK 4 - START
 /*========================[ TASK 4. - HYFBay ]========================== */
 
-
 const products = getAvailableProducts();
 console.log(products);
 
 /*=======================================================================*/
 //#endregion TASK 4 - END
-
