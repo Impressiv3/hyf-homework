@@ -15,16 +15,28 @@
 </head>
 
 <body>
-    <header>
-        <nav>
-        </nav>
-    </header>
     <main>
+      <article>
+        <h1>Spirit Animal Name Generator</h1>
+        <form>
+            <label for="name">Please enter your name below</label>
+            <input type="input" id="realName" name="realName" placeholder="For example: John Doe"><br><br>
+            <h1>Generate name on</h1>
+            <label for="radio1">Button click</label>
+            <input type="radio" name="radio" id="radio1" checked>
+            <label for="radio2">Hover input</label>
+            <input type="radio" name="radio" id="radio2">
+            <label for="r3">Type in input</label>
+            <input type="radio" name="radio" id="radio3">
+            <button type="button" class="button" id="submit" name="submit">Generate Name</button>
+          </form> 
+          <section>
+              <h1 id="spiritAnimalNameOutput"></h1>
+          </section>
+      </article>
     </main>
-    <footer>
-    </footer>
-    <script src="main.js">
-    </script>
+  <script src="main.js">
+  </script>
 </body>
 
 </html>
