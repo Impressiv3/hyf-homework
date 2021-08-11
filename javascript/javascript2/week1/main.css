@@ -1,17 +1,14 @@
 :root {
   font-family: "Montserrat", sans-serif;
 }
-
 h1 {
   font-size: 2rem;
   color: black;
   padding: 1rem;
 }
-
 p {
   margin: 1rem;
 }
-
 body {
   width: 100vw;
   height: 100vh;
@@ -23,12 +20,38 @@ body {
   background-repeat: no-repeat;
   background-position: right top;
   background-attachment: fixed;
+  -webkit-animation-duration: 3s;
+  animation-duration: 3s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.fadeIn {
+  -webkit-animation-name: fadeIn;
+  animation-name: fadeIn;
 }
 
 main {
   width: 50%;
 }
-
 article {
   width: 100%;
   display: flex;
@@ -44,7 +67,6 @@ article {
     rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
   padding: 2rem;
 }
-
 section {
   width: 100%;
   display: flex;
@@ -52,7 +74,6 @@ section {
   align-items: center;
   flex-direction: column;
 }
-
 form {
   display: flex;
   justify-content: center;
@@ -60,7 +81,6 @@ form {
   flex-direction: column;
   width: 90%;
 }
-
 input {
   border: 2px solid;
   border-radius: 4px;
@@ -69,11 +89,9 @@ input {
   min-width: 125px;
   padding: 0.5rem;
 }
-
 input[type="text"] {
   width: 100%;
 }
-
 input[type="submit"] {
   background-color: white;
   width: 100%;
@@ -84,11 +102,9 @@ input[type="submit"] {
   box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
     rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
 }
-
 input[type="submit"]:hover {
   background-color: cornflowerblue;
 }
-
 .button {
   width: 70%;
   background-color: #6b6dbd;
@@ -102,12 +118,10 @@ input[type="submit"]:hover {
   border-radius: 0.5rem;
   transition: ease-in-out 0.4s;
 }
-
 .button:hover {
   background-color: #7577c2;
   box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.3);
 }
-
 ul {
   display: flex;
   justify-content: center;
@@ -120,18 +134,21 @@ ul {
   width: 60%;
   border-radius: 10px;
 }
-
 li {
   padding: 0.6rem;
   margin: 1rem;
 }
-
 .product-wrapper {
   width: 80%;
+  transition: ease-in-out 0.3s;
   border-radius: 10px;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
-
+.product-wrapper:hover {
+  width: 100%;
+  border-radius: 10px;
+  border: 1px solid black;
+}
 .product-name {
   font-size: 1.4rem;
   font-weight: 900;
@@ -140,14 +157,15 @@ li {
   border-bottom-right-radius: 10px;
   color: white;
 }
-
 .product-price {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
   text-align: center;
   font-size: 2rem;
   font-weight: 800;
-  border-bottom: 1px solid grey;
 }
-
 .product-rating {
   font-size: 1.4rem;
   font-weight: 900;

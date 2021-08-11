@@ -78,14 +78,14 @@ danishLetterCounter(danishString2);
 
 let userName = "";
 const firstAnimalName = [
-  "The sick",
-  "The bored",
-  "The fantastic",
-  "The wild",
-  "The incredible",
-  "The unbeliveable",
-  "The stupid",
-  "The crazy",
+  "sick",
+  "bored",
+  "fantastic",
+  "wild",
+  "incredible",
+  "unbeliveable",
+  "stupid",
+  "crazy",
 ];
 const secondAnimalName = [
   "Wolf",
@@ -125,7 +125,7 @@ function getRandomNames() {
 }
 
 function showAnimalName(userName) {
-  return userName + " : " + `${getRandomNames()}`;
+  return userName + " : The " + `${getRandomNames()}`;
 }
 
 function addOnClickEventListenerToElement() {
@@ -165,29 +165,33 @@ const products = getAvailableProducts();
 const generateProductListButton = document.querySelector("#generateProductListButton");
 const productList = document.querySelector("#product-list");
 
-generateProductListButton.addEventListener("click", generateProductList); // CREATE LIST FUNCTION
+generateProductListButton.addEventListener("click", generateProductList);
+
+function createHtmlListItem(itemToCreate) {
+  const productWrapper = document.createElement("li");
+  productWrapper.classList.add("product-wrapper");
+  productList.appendChild(productWrapper);
+
+  let productName = document.createElement("li");
+  productName.classList.add("product-name");
+  productName.innerText = `${itemToCreate.name}`;
+  productWrapper.appendChild(productName);
+
+  let productPrice = document.createElement("li");
+  productPrice.classList.add("product-price");
+  productPrice.innerText = `Price : $${itemToCreate.price}`;
+  productWrapper.appendChild(productPrice);
+
+  let productRating = document.createElement("li");
+  productRating.classList.add("product-rating");
+  const starString = "☆";
+  productRating.innerText = `Rating : ${starString.repeat(itemToCreate.rating)}`;
+  productWrapper.appendChild(productRating);
+}
 
 function generateProductList() {
   products.forEach((product) => {
-    let productWrapper = document.createElement("li");
-    productWrapper.classList.add("product-wrapper");
-    productList.appendChild(productWrapper);
-
-    let productName = document.createElement("li");
-    productName.classList.add("product-name");
-    productName.innerText = `${product.name}`;
-    productWrapper.appendChild(productName);
-
-    let productPrice = document.createElement("li");
-    productPrice.classList.add("product-price");
-    productPrice.innerText = `Price : ${product.price}$`;
-    productWrapper.appendChild(productPrice);
-
-    let productRating = document.createElement("li");
-    productRating.classList.add("product-rating");
-    let starString = "☆";
-    productRating.innerText = `Rating : ${starString.repeat(product.rating)}`;
-    productWrapper.appendChild(productRating);
+    createHtmlListItem(product);
   });
 }
 
