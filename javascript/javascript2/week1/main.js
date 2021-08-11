@@ -77,11 +77,28 @@ danishLetterCounter(danishString2);
 ////////////////////////// VARIABLES  ////////////////////////////////////
 
 let userName = "";
-const firstAnimalName = ["The sick", "The bored", "The fantastic", "The wild"];
-const secondAnimalName = ["Wolf", "Caterpillar", "Alpaca", "Sloth"];
-const spiritAnimalNameOutput = document.querySelector(
-  "#spiritAnimalNameOutput"
-);
+const firstAnimalName = [
+  "The sick",
+  "The bored",
+  "The fantastic",
+  "The wild",
+  "The incredible",
+  "The unbeliveable",
+  "The stupid",
+  "The crazy",
+];
+const secondAnimalName = [
+  "Wolf",
+  "Caterpillar",
+  "Alpaca",
+  "Sloth",
+  "Monkey",
+  "Bonobo",
+  "Snake",
+  "Pig",
+  "Dog",
+];
+const spiritAnimalNameOutput = document.querySelector("#spiritAnimalNameOutput");
 
 const submitButton = document.querySelector("#submit");
 const realName = document.querySelector("#realName");
@@ -145,7 +162,34 @@ addOnClickEventListenerToElement();
 /*========================[ TASK 4. - HYFBay ]========================== */
 
 const products = getAvailableProducts();
-console.log(products);
+const generateProductListButton = document.querySelector("#generateProductListButton");
+const productList = document.querySelector("#product-list");
+
+generateProductListButton.addEventListener("click", generateProductList); // CREATE LIST FUNCTION
+
+function generateProductList() {
+  products.forEach((product) => {
+    let productWrapper = document.createElement("li");
+    productWrapper.classList.add("product-wrapper");
+    productList.appendChild(productWrapper);
+
+    let productName = document.createElement("li");
+    productName.classList.add("product-name");
+    productName.innerText = `${product.name}`;
+    productWrapper.appendChild(productName);
+
+    let productPrice = document.createElement("li");
+    productPrice.classList.add("product-price");
+    productPrice.innerText = `Price : ${product.price}$`;
+    productWrapper.appendChild(productPrice);
+
+    let productRating = document.createElement("li");
+    productRating.classList.add("product-rating");
+    let starString = "☆";
+    productRating.innerText = `Rating : ${starString.repeat(product.rating)}`;
+    productWrapper.appendChild(productRating);
+  });
+}
 
 /*=======================================================================*/
 //#endregion TASK 4 - END
