@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" />
+        <link rel="stylesheet" href="reset.css" />
+        <link rel="stylesheet" href="main.css" />
+        <title>HYF - JavaScript 2 - Week 1</title>
+    </head>
+
+    <body class="fadeIn">
+        <main>
+            <article>
+                <h1>Spirit Animal Name Generator</h1>
+                <form>
+                    <label for="name">Please enter your name below</label>
+                    <input type="input" id="realName" name="realName" placeholder="For example: John Doe" /><br />
+                    <br />
+                    <h1>Generate name on</h1>
+                    <label for="radio1">Button click</label>
+                    <input type="radio" name="radio" id="radio1" checked />
+                    <label for="radio2">Hover input</label>
+                    <input type="radio" name="radio" id="radio2" />
+                    <label for="r3">Type in input</label>
+                    <input type="radio" name="radio" id="radio3" />
+                    <button type="button" class="button" id="submit" name="submit">Generate Name</button>
+                </form>
+                <h1 id="spiritAnimalNameOutput"></h1>
+            </article>
+            <article>
+                <h1>- WELCOME ON HYF BAY -</h1>
+                <p>Pleace your order NOW ! FREE shipping, same day delivery.</p>
+                <button type="button" class="button" id="generateProductListButton" name="listGenerator">Generate Product List</button>
+                <ul class="product-list" id="product-list"></ul>
+            </article>
+        </main>
+        <script src="hyfBayHelpers.js"></script>
+        <script src="main.js"></script>
+    </body>
+</html>
