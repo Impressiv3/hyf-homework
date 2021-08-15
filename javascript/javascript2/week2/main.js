@@ -10,7 +10,7 @@
 let numbers = [1, 2, 3, 4];
 let newNumbers = [];
 
-newNumbers = numbers.filter((number) => number % 2 !== 0).map((number) => number * 2);
+newNumbers = numbers.filter((num) => num % 2 !== 0).map((number) => number * 2);
 console.log(newNumbers);
 
 /////////////////////////////////////////////////////////////////////////
@@ -55,10 +55,9 @@ function addTag(movie) {
 //_______________________________________________________________________
 
 // 5: First filter the movies array to only contain the movies rated higher than 6.
-// Now map the movies array to only the rating of the movies.
 
-
-console.log(movies.filter(movie => movie.rating > 6));
+let bestMovies = movies.filter((movie) => movie.rating > 6).map((movie) => movie.rating);
+console.log(bestMovies);
 
 //_______________________________________________________________________
 
@@ -66,7 +65,73 @@ console.log(movies.filter(movie => movie.rating > 6));
 // Surfer, Alien or Benjamin.
 const wordsToLookFor = ["Surfer", "Alien", "Benjamin"];
 
+let numberOfMoviesContaining = movies.filter((movie) =>
+  wordsToLookFor.some((element) => movie.title.toLowerCase().includes(element.toLowerCase())),
+);
+console.log(numberOfMoviesContaining.length);
 
 //_______________________________________________________________________
+
+// 7: Create an array of movies where a word in the title is duplicated.
+
+const moviesWithDuplicates = movies.filter((movie) => checkIfStringHasDuplicates(movie.title));
+
+function checkIfStringHasDuplicates(stringToCheck) {
+  let checkedString = stringToCheck.toLowerCase().split(" ");
+  let uniqueString = new Set(checkedString);
+
+  if (uniqueString.size != checkedString.length) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+console.log(moviesWithDuplicates);
+
+//_______________________________________________________________________
+
+// 8: Calculate the average rating of all the movies using reduce.
+
+const averageMovieRating = movies
+  .map((movie) => movie.rating)
+  .reduce((total, next, index, array) => {
+    total += next;
+
+    if (index === array.length - 1) {
+      return total / array.length;
+    } else {
+      return total;
+    }
+  });
+
+console.log(averageMovieRating);
+
+//_______________________________________________________________________
+
+// 9: Count the total number of Good, Average and Bad movies using reduce.
+
+let reduceMe = movies.reduce(
+  function (accumulator, currentItem) {
+    if (currentItem.rating >= 7) accumulator.goodMovies += 1;
+    if (currentItem.rating >= 4 && currentItem.rating < 7) accumulator.averageMovies += 1;
+    if (currentItem.rating < 4) accumulator.badMovies += 1;
+    return accumulator;
+  },
+  { goodMovies: 0, averageMovies: 0, badMovies: 0 },
+);
+
+console.log(reduceMe);
+
+//_______________________________________________________________________
+
 ////////////////////////////////////////////////////////////////////////
 //#endregion END----------[ TASK 2 ] Working with movies-----------------
+
+//#region START-------[ TASK 3 ] HYFBaY - Filtered products--------------
+
+
+
+/////////////////////////////////////////////////////////////////////////
+//#endregion END------[ TASK 3 ] HYFBaY - Filtered products--------------
+
