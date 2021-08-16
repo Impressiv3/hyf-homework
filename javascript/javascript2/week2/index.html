@@ -1,40 +1,90 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.css" async>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.css">
     <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
     <link rel="stylesheet" href="reset.css">
     <link rel="stylesheet" href="main.css">
     <link rel="icon" href="favicon.ico" type="image/x-icon" />
     <title>HYF-HOMEWORK-JS2-WEEK2</title>
-</head>
-
-<body>
+  </head>
+  <body>
     <video poster="poster.png" autoplay playsinline muted loop>
-        <source src="background.webm" type="video/webm">
-        <source src="background.mp4" type="video/mp4">
-      </video>
-<header>
-    <div class="search-bar">
-        
-        
-        <input type="text" placeholder="search...">
-        <i class="fa fa-search" aria-hidden="true"></i>
-    </div>
-    <div class="logo">
+      <source src="background.webm" type="video/webm">
+      <source src="background.mp4" type="video/mp4">
+    </video>
+    <header>
+      <div class="logo">
         <h1>- HYF BAY -</h1>
-    </div>
-</header>
-<main>
-
-</main>
+      </div>
+    </header>
+    <main>
+      <section class="options-section" id="options-section">
+        <div class="search-bar">                
+          <input type="text" placeholder="Search product...">
+          <i class="fa fa-search" aria-hidden="true"></i>
+        </div>
+        <div class="sort">
+          <label>Sort:</label>
+          <select>
+            <option value="cheap">Cheap first</option>
+            <option value="expensive">Expensive first</option>
+            <option value="name">Name</option>
+          </select>
+        </div>
+        <div class="filters">
+          <label>Ships to:</label>
+          <select>
+            <option value="denmark">Denmark</option>
+            <option value="sweden">Sweden</option>
+            <option value="norway">Norway</option>
+            <option value="germany">Germany</option>
+            <option value="iceland">Iceland</option>
+            <option value="england">England</option>
+          </select>
+        </div>
+        <div class="price-slider" id="price-slider">
+          <input type="range" id="start" name="volume" min="0" max="100" value="100">
+          <label for="slider-value">Price range:</label>
+          <div class="slider-value" id="slider-value">
+            <h3>0 - 1000</h3>
+          </div>
+        </div>
+      </section>
+      <section class="product-section" id="product-section">
+        <div class="products-header" id="products-header">
+          <h2>Product</h2>
+          <h2>Price</h2>
+          <h2>Rating</h2>
+        </div>
+        <ul class="list-all-products" id="list-all-products">
+          
+<!--      <li class="item" id="item">
+           <ul class="item-list" id="item-list">
+             <li class="item-list-item" id="item-list-item">NAME</li>
+             <li class="item-list-item" id="item-list-item">Price</li>
+             <li class="item-list-item" id="item-list-item">Rating</li>
+           </ul>
+          </li>
+          
+          <li  id="item">
+            <ul class="item-list" id="item-list">
+              <li class="item-list-item" id="item-list-item">NAME</li>
+              <li class="item-list-item" id="item-list-item">Price</li>
+              <li class="item-list-item" id="item-list-item">Rating</li>
+            </ul>
+           </li> -->
+        </ul>
+      </section>
+    </main>
     <script src="hyfBayHelpers.js"></script>
     <script src="movies.js"></script>
     <script src="main.js"></script>
-</body>
-
+  </body>
 </html>
+

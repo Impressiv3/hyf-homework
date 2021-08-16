@@ -129,9 +129,67 @@ console.log(reduceMe);
 //#endregion END----------[ TASK 2 ] Working with movies-----------------
 
 //#region START-------[ TASK 3 ] HYFBaY - Filtered products--------------
+const listOfAvailableProducts = getAvailableProducts();
+const list_all_products = document.getElementById("list-all-products");
 
+/* function dislayProductList(productList) {
+  productList.forEach((product) => {
+    let item = document.createElement("LI");
+    item.className = "item";
+    item.id = "item";
+    list_all_products.appendChild("item");
 
+    let item_list = document.createElement("UL");
+    item_list.className = "item-list";
+    item_list.id = "item-list";
+    item.appendChild(item_list);
+
+    let item_list_item = document.createElement("LI");
+    item-list-item.className = "item-list-item";
+    item-list-item.id = "item-list-item";
+    item-list-item.innerHTML = product.name;
+    item_list.appendChild(item-list-item);
+  });
+} */
+
+function displayProductList(productsList) {
+  productsList.forEach((product) => {
+    createHtmlList(product);
+  });
+}
+
+function createHtmlList(itemToCreate) {
+  const item = document.createElement("LI");
+  item.classList.add("item");
+  item.id = "item";
+  list_all_products.appendChild(item);
+
+  const item_list = document.createElement("UL");
+  item_list.classList.add("item-list");
+  item_list.id = "item-list";
+  item.appendChild(item_list);
+
+  let productName = document.createElement("LI");
+  productName.classList.add("item-list-item");
+  productName.id = "item-list-item";
+  productName.innerHTML = `${itemToCreate.name}`;
+  item_list.appendChild(productName);
+
+  let productPrice = document.createElement("LI");
+  productPrice.classList.add("item-list-item");
+  productPrice.id = "item-list-item";
+  productPrice.innerHTML = `$ ${itemToCreate.price}`;
+  item_list.appendChild(productPrice);
+
+  let productRating = document.createElement("LI");
+  productRating.classList.add("item-list-item");
+  productRating.id = "item-list-item";
+  let starString = "☆";
+  productRating.innerHTML = `${starString.repeat(itemToCreate.rating)}`;
+  item_list.appendChild(productRating);
+}
+
+displayProductList(listOfAvailableProducts);
 
 /////////////////////////////////////////////////////////////////////////
 //#endregion END------[ TASK 3 ] HYFBaY - Filtered products--------------
-
