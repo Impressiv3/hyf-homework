@@ -26,15 +26,16 @@
     <main>
       <section class="options-section" id="options-section">
         <div class="search-bar">                
-          <input type="text" placeholder="Search product...">
+          <input id="searchByName" type="text" placeholder="Search product...">
           <i class="fa fa-search" aria-hidden="true"></i>
         </div>
         <div class="sort">
           <label>Sort:</label>
-          <select>
-            <option value="cheap">Cheap first</option>
-            <option value="expensive">Expensive first</option>
-            <option value="name">Name</option>
+          <select id="sortBy">
+            <option value="cheap">Price ascending ↑</option>
+            <option value="expensive">Price descending ↓</option>
+            <option value="nameAZ">From A-Z</option>
+            <option value="nameZA">From Z-A</option>
           </select>
         </div>
         <div class="filters">
@@ -49,36 +50,22 @@
           </select>
         </div>
         <div class="price-slider" id="price-slider">
-          <input type="range" id="start" name="volume" min="0" max="100" value="100">
+          <input type="range" id="start" name="volume" min="0" max="10000" value="10000">
           <label for="slider-value">Price range:</label>
-          <div class="slider-value" id="slider-value">
-            <h3>0 - 1000</h3>
+          <div class="slider-value" id="price-slider-value">
+            <h3 id="price-slider-value">0 - 1000</h3>
           </div>
         </div>
+        <button type="button" id="reset-button">Reset search</button>
       </section>
       <section class="product-section" id="product-section">
         <div class="products-header" id="products-header">
           <h2>Product</h2>
           <h2>Price</h2>
           <h2>Rating</h2>
+          <h2>Ships to</h2>
         </div>
         <ul class="list-all-products" id="list-all-products">
-          
-<!--      <li class="item" id="item">
-           <ul class="item-list" id="item-list">
-             <li class="item-list-item" id="item-list-item">NAME</li>
-             <li class="item-list-item" id="item-list-item">Price</li>
-             <li class="item-list-item" id="item-list-item">Rating</li>
-           </ul>
-          </li>
-          
-          <li  id="item">
-            <ul class="item-list" id="item-list">
-              <li class="item-list-item" id="item-list-item">NAME</li>
-              <li class="item-list-item" id="item-list-item">Price</li>
-              <li class="item-list-item" id="item-list-item">Rating</li>
-            </ul>
-           </li> -->
         </ul>
       </section>
     </main>

@@ -1,4 +1,4 @@
-/* DONT MODIFY ANY OF THIS CODE!!!*/
+window.availableCountries = ["Denmark", "Sweden", "Norway", "Germany", "Iceland", "England"];
 
 window.getAvailableProducts = function () {
   function getRandomInt(min, max) {
@@ -52,6 +52,22 @@ window.getAvailableProducts = function () {
     return chosenProductName;
   }
 
+  /* DONT MODIFY ANY OF THIS CODE!!!*/
+  function getRandomCountries() {
+    const numberOfCountries = getRandomInt(1, 3);
+
+    const randomCountries = [];
+    while (randomCountries.length < numberOfCountries) {
+      const randomIndex = getRandomInt(0, window.availableCountries.length - 1);
+      const randomCountry = window.availableCountries[randomIndex];
+      if (!randomCountries.includes(randomCountry)) {
+        randomCountries.push(randomCountry);
+      }
+    }
+
+    return randomCountries;
+  }
+
   const numberOfAvailableProducts = getRandomInt(0, 30);
   const availableProducts = Array.apply(null, Array(numberOfAvailableProducts)).map(() => {
     const name = getRandomProductname();
@@ -60,6 +76,7 @@ window.getAvailableProducts = function () {
       name,
       price: getRandomInt(0, 10000),
       rating: getRandomInt(1, 10),
+      shipsTo: getRandomCountries(),
     };
   });
 

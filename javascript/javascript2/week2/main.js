@@ -129,34 +129,72 @@ console.log(reduceMe);
 //#endregion END----------[ TASK 2 ] Working with movies-----------------
 
 //#region START-------[ TASK 3 ] HYFBaY - Filtered products--------------
+
+// VARIABLES
+
 const listOfAvailableProducts = getAvailableProducts();
+const originalList = listOfAvailableProducts;
+let currentList = listOfAvailableProducts;
 const list_all_products = document.getElementById("list-all-products");
+const searchByName = document.getElementById("searchByName");
+const priceSlider = document.getElementById("price-slider");
+const sortBy = document.getElementById("sortBy");
+const priceSliderValue = document.getElementById("price-slider-value");
+const resetButton = document.getElementById("reset-button");
 
-/* function dislayProductList(productList) {
-  productList.forEach((product) => {
-    let item = document.createElement("LI");
-    item.className = "item";
-    item.id = "item";
-    list_all_products.appendChild("item");
+// Event listeners
 
-    let item_list = document.createElement("UL");
-    item_list.className = "item-list";
-    item_list.id = "item-list";
-    item.appendChild(item_list);
+searchByName.addEventListener("input", (event) => {
+  function convertToLowerCase(itemName) {
+    return itemName.toLowerCase();
+  }
 
-    let item_list_item = document.createElement("LI");
-    item-list-item.className = "item-list-item";
-    item-list-item.id = "item-list-item";
-    item-list-item.innerHTML = product.name;
-    item_list.appendChild(item-list-item);
-  });
-} */
+  currentList = listOfAvailableProducts.filter((item) =>
+    convertToLowerCase(item.name).startsWith(event.target.value.toLowerCase()),
+  );
 
-function displayProductList(productsList) {
-  productsList.forEach((product) => {
-    createHtmlList(product);
-  });
-}
+  displayProductList(currentList);
+});
+
+priceSlider.addEventListener("input", (event) => {
+  currentList = listOfAvailableProducts.filter((item) => item.price <= event.target.value);
+  priceSliderValue.innerText = `0 - ${event.target.value}`;
+  displayProductList(currentList);
+});
+
+sortBy.addEventListener("input", (event) => {
+  switch (event.target.value) {
+    case "cheap":
+      console.log("cheap");
+      currentList = currentList.sortBy((a, b) => {
+        return a.price - b.price;
+      });
+
+      break;
+    case "expensive":
+      console.log("ex");
+      break;
+    case "nameAZ":
+      currentList = currentList.sort((a, b) => (a.name > b.name ? 1 : -1));
+      displayProductList(currentList);
+      console.log("AZ");
+      break;
+    case "nameZA":
+      currentList = currentList.sort((a, b) => (a.name < b.name ? 1 : -1));
+      displayProductList(currentList);
+      console.log("ZA");
+      break;
+    default:
+      console.log(`Sorry, we are out of ${expr}.`);
+  }
+});
+
+resetButton.addEventListener("click", (event) => {
+  currentList = originalList;
+  displayProductList(currentList);
+});
+
+// Creating HTML List Elements
 
 function createHtmlList(itemToCreate) {
   const item = document.createElement("LI");
@@ -164,7 +202,7 @@ function createHtmlList(itemToCreate) {
   item.id = "item";
   list_all_products.appendChild(item);
 
-  const item_list = document.createElement("UL");
+  let item_list = document.createElement("UL");
   item_list.classList.add("item-list");
   item_list.id = "item-list";
   item.appendChild(item_list);
@@ -187,9 +225,31 @@ function createHtmlList(itemToCreate) {
   let starString = "☆";
   productRating.innerHTML = `${starString.repeat(itemToCreate.rating)}`;
   item_list.appendChild(productRating);
+
+  let productShipsTo = document.createElement("LI");
+  productShipsTo.classList.add("item-list-item");
+  productShipsTo.id = "item-list-item";
+  productShipsTo.innerHTML = `${itemToCreate.shipsTo}`;
+  item_list.appendChild(productShipsTo);
 }
 
-displayProductList(listOfAvailableProducts);
+function deleteEveryChild() {
+  const list_all_products = document.getElementById("list-all-products");
 
+  let child = list_all_products.lastElementChild;
+  while (child) {
+    list_all_products.removeChild(child);
+    child = list_all_products.lastElementChild;
+  }
+}
+
+function displayProductList(productsList) {
+  deleteEveryChild();
+  productsList.forEach((product) => {
+    createHtmlList(product);
+  });
+}
+
+displayProductList(currentList);
 /////////////////////////////////////////////////////////////////////////
 //#endregion END------[ TASK 3 ] HYFBaY - Filtered products--------------
