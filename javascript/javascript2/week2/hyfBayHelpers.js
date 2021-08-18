@@ -15,7 +15,6 @@ window.getAvailableProducts = function () {
     const preWords = [
       "Used",
       "Fantastic",
-      '"Used"',
       "Broken",
       "Beautiful",
       "Wet",

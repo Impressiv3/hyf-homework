@@ -6,7 +6,6 @@
 
 //      JAVASCRIPT 2 - WEEK 2     //
 //#region START-----------[ TASK 1 ] Doubling of number------------------
-
 let numbers = [1, 2, 3, 4];
 let newNumbers = [];
 
@@ -44,6 +43,7 @@ console.log(moviesMadeBetween(1980, 1981));
 // 4: Create a new array that has an extra key called tag.
 
 movies.forEach((movie) => addTag(movie));
+
 function addTag(movie) {
   movie.rating < 4
     ? (movie.tag = "Bad")
@@ -118,7 +118,11 @@ let reduceMe = movies.reduce(
     if (currentItem.rating < 4) accumulator.badMovies += 1;
     return accumulator;
   },
-  { goodMovies: 0, averageMovies: 0, badMovies: 0 },
+  {
+    goodMovies: 0,
+    averageMovies: 0,
+    badMovies: 0,
+  },
 );
 
 console.log(reduceMe);
@@ -130,71 +134,118 @@ console.log(reduceMe);
 
 //#region START-------[ TASK 3 ] HYFBaY - Filtered products--------------
 
+document.addEventListener("DOMContentLoaded", () => {
+  addEvenlisteners(elementsToAddEventListenersTo);
+});
+
 // VARIABLES
 
-const listOfAvailableProducts = getAvailableProducts();
-const originalList = listOfAvailableProducts;
-let currentList = listOfAvailableProducts;
+const originalList = getAvailableProducts();
+let currentList = originalList;
 const list_all_products = document.getElementById("list-all-products");
 const searchByName = document.getElementById("searchByName");
-const priceSlider = document.getElementById("price-slider");
 const sortBy = document.getElementById("sortBy");
+const shipsTo = document.getElementById("shipsTo");
+const priceSlider = document.getElementById("price-slider");
 const priceSliderValue = document.getElementById("price-slider-value");
 const resetButton = document.getElementById("reset-button");
+const elementsToAddEventListenersTo = [
+  searchByName,
+  sortBy,
+  shipsTo,
+  priceSlider,
+  priceSliderValue,
+  resetButton,
+];
 
-// Event listeners
+function addEvenlisteners(elementsToAddEventListenersTo) {
+  elementsToAddEventListenersTo.forEach((item) => {
+    switch (item.id) {
+      case "searchByName":
+        searchByName.addEventListener("input", (event) => {
+          currentList = originalList.filter((item) =>
+            convertToLowerCase(item.name).startsWith(event.target.value.toLowerCase()),
+          );
+          displayProductList(currentList);
+        });
+        break;
 
-searchByName.addEventListener("input", (event) => {
-  function convertToLowerCase(itemName) {
-    return itemName.toLowerCase();
-  }
+      case "sortBy":
+        sortBy.addEventListener("input", (event) => {
+          switch (event.target.value) {
+            case "cheap":
+              sortByPriceAscending(currentList);
+              displayProductList(currentList);
+              break;
+            case "expensive":
+              sortByPriceDescending(currentList);
+              displayProductList(currentList);
+              break;
+            case "nameAZ":
+              sortByNameFromAToZ(currentList);
+              displayProductList(currentList);
+              break;
+            case "nameZA":
+              sortByNameFromZToA(currentList);
+              displayProductList(currentList);
+              break;
+            default:
+              sortByPriceAscending(currentList);
+              displayProductList(currentList);
+          }
+        });
+        break;
 
-  currentList = listOfAvailableProducts.filter((item) =>
-    convertToLowerCase(item.name).startsWith(event.target.value.toLowerCase()),
-  );
+      case "shipsTo":
+        shipsTo.addEventListener("input", (event) => {
+          switch (event.target.value) {
+            case "denmark":
+              currentList = currentList.filter((item) => item.shipsTo.includes("Denmark"));
+              displayProductList(currentList);
+              break;
+            case "sweden":
+              currentList = currentList.filter((item) => item.shipsTo.includes("Sweden"));
+              displayProductList(currentList);
+              break;
+            case "norway":
+              currentList = currentList.filter((item) => item.shipsTo.includes("Norway"));
+              displayProductList(currentList);
+              break;
+            case "germany":
+              currentList = currentList.filter((item) => item.shipsTo.includes("Germany"));
+              displayProductList(currentList);
+              break;
+            case "iceland":
+              currentList = currentList.filter((item) => item.shipsTo.includes("Iceland"));
+              displayProductList(currentList);
+              break;
+            case "england":
+              currentList = currentList.filter((item) => item.shipsTo.includes("England"));
+              displayProductList(currentList);
+              break;
+            default:
+          }
+        });
+        break;
 
-  displayProductList(currentList);
-});
+      case "price-slider":
+        priceSlider.addEventListener("input", (event) => {
+          currentList = originalList.filter((item) => item.price <= event.target.value);
+          priceSliderValue.innerText = `0 - ${event.target.value} $`;
+          displayProductList(currentList);
+        });
 
-priceSlider.addEventListener("input", (event) => {
-  currentList = listOfAvailableProducts.filter((item) => item.price <= event.target.value);
-  priceSliderValue.innerText = `0 - ${event.target.value}`;
-  displayProductList(currentList);
-});
+      case "reset-button":
+        resetButton.addEventListener("click", (event) => {
+          currentList = originalList;
+          displayProductList(currentList);
+        });
+      default:
+    }
+  });
+}
 
-sortBy.addEventListener("input", (event) => {
-  switch (event.target.value) {
-    case "cheap":
-      console.log("cheap");
-      currentList = currentList.sortBy((a, b) => {
-        return a.price - b.price;
-      });
-
-      break;
-    case "expensive":
-      console.log("ex");
-      break;
-    case "nameAZ":
-      currentList = currentList.sort((a, b) => (a.name > b.name ? 1 : -1));
-      displayProductList(currentList);
-      console.log("AZ");
-      break;
-    case "nameZA":
-      currentList = currentList.sort((a, b) => (a.name < b.name ? 1 : -1));
-      displayProductList(currentList);
-      console.log("ZA");
-      break;
-    default:
-      console.log(`Sorry, we are out of ${expr}.`);
-  }
-});
-
-resetButton.addEventListener("click", (event) => {
-  currentList = originalList;
-  displayProductList(currentList);
-});
-
-// Creating HTML List Elements
+// FUNCTIONS
 
 function createHtmlList(itemToCreate) {
   const item = document.createElement("LI");
@@ -222,7 +273,7 @@ function createHtmlList(itemToCreate) {
   let productRating = document.createElement("LI");
   productRating.classList.add("item-list-item");
   productRating.id = "item-list-item";
-  let starString = "☆";
+  const starString = "☆";
   productRating.innerHTML = `${starString.repeat(itemToCreate.rating)}`;
   item_list.appendChild(productRating);
 
@@ -250,6 +301,32 @@ function displayProductList(productsList) {
   });
 }
 
+function sortByPriceAscending(listToSort) {
+  listToSort = listToSort.sort((a, b) => (a.price > b.price ? 1 : -1));
+}
+
+function sortByPriceDescending(listToSort) {
+  listToSort = listToSort.sort((a, b) => (a.price < b.price ? 1 : -1));
+}
+
+function sortByNameFromAToZ(listToSort) {
+  listToSort = listToSort.sort((a, b) => (a.name > b.name ? 1 : -1));
+}
+
+function sortByNameFromZToA(listToSort) {
+  listToSort = listToSort.sort((a, b) => (a.name < b.name ? 1 : -1));
+}
+
+function sortByShippingTo(listToSort) {
+  listToSort = listToSort.filter();
+}
+
+function convertToLowerCase(itemName) {
+  return itemName.toLowerCase();
+}
+
+sortByPriceAscending(currentList);
 displayProductList(currentList);
+
 /////////////////////////////////////////////////////////////////////////
 //#endregion END------[ TASK 3 ] HYFBaY - Filtered products--------------

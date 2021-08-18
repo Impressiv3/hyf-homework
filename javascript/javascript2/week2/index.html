@@ -1,46 +1,50 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.css">
-    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
-    <link rel="stylesheet" href="reset.css">
-    <link rel="stylesheet" href="main.css">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.css" />
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" />
+    <link rel="stylesheet" href="reset.css" />
+    <link rel="stylesheet" href="main.css" />
     <link rel="icon" href="favicon.ico" type="image/x-icon" />
     <title>HYF-HOMEWORK-JS2-WEEK2</title>
   </head>
   <body>
     <video poster="poster.png" autoplay playsinline muted loop>
-      <source src="background.webm" type="video/webm">
-      <source src="background.mp4" type="video/mp4">
+      <source src="background.webm" type="video/webm" />
+      <source src="background.mp4" type="video/mp4" />
     </video>
     <header>
       <div class="logo">
-        <h1>- HYF BAY -</h1>
+        <h1 class="logo-hyf">- HYF BAY -</h1>
+      </div>
+      <div>
+        <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+        <i class="fa fa-user" aria-hidden="true"></i>
+        <i class="fa fa-bars" aria-hidden="true"></i>
       </div>
     </header>
     <main>
       <section class="options-section" id="options-section">
-        <div class="search-bar">                
-          <input id="searchByName" type="text" placeholder="Search product...">
+        <div class="search-bar">
+          <input id="searchByName" type="text" placeholder="Search product..." />
           <i class="fa fa-search" aria-hidden="true"></i>
         </div>
         <div class="sort">
           <label>Sort:</label>
           <select id="sortBy">
-            <option value="cheap">Price ascending ↑</option>
-            <option value="expensive">Price descending ↓</option>
-            <option value="nameAZ">From A-Z</option>
-            <option value="nameZA">From Z-A</option>
+            <option value="cheap">Price ascending↑</option>
+            <option value="expensive">Price descending↓</option>
+            <option value="nameAZ">From A→Z</option>
+            <option value="nameZA">From Z→A</option>
           </select>
         </div>
         <div class="filters">
           <label>Ships to:</label>
-          <select>
+          <select id="shipsTo">
+            <option value data-isdefault="true">- select a country -</option>
             <option value="denmark">Denmark</option>
             <option value="sweden">Sweden</option>
             <option value="norway">Norway</option>
@@ -50,10 +54,9 @@
           </select>
         </div>
         <div class="price-slider" id="price-slider">
-          <input type="range" id="start" name="volume" min="0" max="10000" value="10000">
-          <label for="slider-value">Price range:</label>
+          <input type="range" id="start" name="volume" min="0" max="10000" value="10000" />
           <div class="slider-value" id="price-slider-value">
-            <h3 id="price-slider-value">0 - 1000</h3>
+            <h3 id="price-slider-value">0 - 1000 $</h3>
           </div>
         </div>
         <button type="button" id="reset-button">Reset search</button>
@@ -65,8 +68,7 @@
           <h2>Rating</h2>
           <h2>Ships to</h2>
         </div>
-        <ul class="list-all-products" id="list-all-products">
-        </ul>
+        <ul class="list-all-products" id="list-all-products"></ul>
       </section>
     </main>
     <script src="hyfBayHelpers.js"></script>
@@ -74,4 +76,3 @@
     <script src="main.js"></script>
   </body>
 </html>
-
