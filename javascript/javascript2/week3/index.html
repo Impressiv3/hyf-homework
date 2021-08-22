@@ -1,7 +1,8 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,10 +11,43 @@
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="favicon.ico" type="image/x-icon" />
     <title>HYF-Homework-JS2-Week3</title>
-</head>
-
-<body>
+  </head>
+  <body>
+    <main>
+      <article>
+        <button class="button" id="delay-button" type=button>Click for delayed console message...</button>
+      </article>
+      <article>
+        <button class="button" id="location-button" type=button>Get your location</button>
+        <ul class="coordinate-list" id="coordinate-list">
+        </ul>
+      </article>
+      <article>
+        <div id="googleMap"></div>
+      </article>
+      <article>
+        <div class="game-window" id="game-window">
+          <div class="game-window-header" id="game-window-header">
+            <h1>FASTEST PRESSER</h1>
+            <label for="secondsLeft">How many seconds should the game last?</label>
+            <input type="number" id="secondsLeft" name="secondsLeft" min="10" max="20">
+            <button class="button" type="button" id="start-button">Start game</button>
+          </div>
+          <div class="player-screens" id="player-screens">
+            <div class="player1-screen" id="player1-screen">
+                <h1 id="press-text">Press S</h1>
+                <h1 id="press-text">1</h1>
+            </div>
+            <div class="player2-screen" id="player2-screen">
+                <h1 id="press-text">Press L</h1>
+                <h1id="press-text">1</h1>
+            </div>
+          </div>
+        </div>
+      </article>
+    </main>
     <script src="index.js"></script>
-</body>
-
+    <script src="https://maps.googleapis.com/maps/api/js?key=KEYHASBEENREMOVEDBYME&callback=showGoogleMaps"></script>   
+  </body>
 </html>
+
