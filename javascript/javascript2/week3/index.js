@@ -10,7 +10,7 @@
 
 /////////////////////////////////////////////////////////////////////////
 // 1. Log out the text Called 2.5 seconds after the script is loaded.
-
+/* 
 window.addEventListener("load", (event) => {
   setTimeout(() => console.log("Called"), 1000);
 });
@@ -206,14 +206,87 @@ function lastFunction() {
 const anotherFunction = () => console.log("This is another function.");
 arrayOfFunctions.forEach((theFunctionToCall) => theFunctionToCall());
 anotherFunction();
-objectOfFunctions.functionToCall();
+objectOfFunctions.functionToCall(); */
 
 /////////////////////////////////////////////////////////////////////////
 
 //#endregion END--------[ TASK 2 ] Function as a variable---------------
 
 //#region START---------[ TASK 3 ] The fastest presser in this realm----
+const timer = document.getElementById("timer");
+const display = document.getElementById("display");
+const startButton = document.getElementById("start-button");
+const playerScreens = document.getElementById("player-screens");
+const player1Screen = document.getElementById("player1-screen");
+const player2Screen = document.getElementById("player2-screen");
+const player1Counter = document.getElementById("player1-counter");
+const player2Counter = document.getElementById("player2-counter");
+let player1Score = 0;
+let player2Score = 0;
+const playTimeMin = 2;
+const playTimeMax = 30;
+let playTime = 3;
+let canStartGame = true;
+timer.addEventListener("input", () => {
+  playTime = timer.value;
 
+  if (playTime < playTimeMin || playTime > playTimeMax) {
+    setDisplayMessage(`Play time must be between ${playTimeMin} - ${playTimeMax} seconds.`);
+    canStartGame = false;
+  } else {
+    setDisplayMessage("Press Start To Play!");
+    canStartGame = true;
+  }
+});
+console.log(canStartGame);
+
+startButton.addEventListener("click", startGame);
+
+function setDisplayMessage(displayMessage) {
+  display.innerHTML = displayMessage;
+}
+
+function resetGame() {
+  canStartGame = true;
+  playTime = 3;
+  player1Score = 1;
+  player2Score = 1;
+  player1Counter.innerHTML = player1Score;
+  player2Counter.innerHTML = player2Score;
+  setDisplayMessage("Press START to play");
+}
+
+function startGame() {
+  if (canStartGame) {
+    attachEventListeners();
+    setTimeout(() => {
+      gameOver();
+    }, playTime * 1000);
+  }
+}
+
+function attachEventListeners() {
+  window.addEventListener("keypress", keyPressHandler(e));
+}
+
+function keyPressHandler(e) {
+  if (e.key === "s") {
+    player1Score++;
+    player1Counter.innerHTML = player1Score;
+  }
+
+  if (e.key === "l") {
+    player2Score++;
+    player2Counter.innerHTML = player2Score;
+  }
+}
+
+function gameOver() {
+  setDisplayMessage("Game OVER!");
+  removeEvenlistener();
+}
+
+resetGame();
 
 /////////////////////////////////////////////////////////////////////////
 //#endregion END--------[ TASK 3 ] The fastest presser in this realm-----

@@ -1,15 +1,13 @@
 *,
 *::before,
 *::after {
-  box-sizing: inherit;
+  box-sizing: border-box;
 }
 
 html,
 body {
-  box-sizing: border-box;
   height: 100%;
   margin: 0;
-  padding: 1rem;
 }
 
 main {
@@ -19,6 +17,7 @@ main {
   align-items: center;
   flex-direction: column;
   background-color: aliceblue;
+  padding: 2rem;
 }
 
 article {
@@ -61,7 +60,6 @@ article {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background-color: blue;
   width: 100%;
 }
 
