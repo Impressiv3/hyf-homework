@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.css">
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+    <link rel="stylesheet" href="style.css">
+    <title>Fastest Presser</title>
+</head>
+
+<body>
+    <video id="background-video" autoplay loop muted>
+        <source src="background.mp4" type="video/mp4">
+      </video>
+
+       <div class="game-window">
+        <h1 id="gameTitle">Fastest Presser</h1>
+         <div id="game-window-header">
+            <label for="gameTime">Game time : </label>
+            <select class="gameTime" name="gameTime" id="gameTime">
+              <option value="10">10 seconds</option>
+              <option value="20">20 seconds</option>
+              <option value="30">30 seconds</option>
+              <option value="40">40 seconds</option>
+            </select> 
+         </div>
+         <div class="gameDisplay" id="gameDisplay">
+             <h1 id="display"></h1>
+             <button class="button" id="start-button" type="button">Start Game</button>
+         </div>
+          <div class="game-screens" id="game-screens">
+              <div class="player1-screen" id="player1-screen">
+               <h1>Player 1</h1>
+               <h1 id="player1-message">Press "S"</h1>
+               <h1 id="player1-counter">Score: 0</h1>
+               <canvas id="player1-canvas"></canvas>
+               <img src="" id="player1-image">
+              </div>
+              <div class="player2-screen" id="player2-screen">
+                <h1>Player 2</h1> 
+                <h1 id="player2-message">Press "L"</h1> 
+                <h1 id="player2-counter">Score: 0</h1>
+                <canvas id="player2-canvas"></canvas>
+                <img src="" id="player2-image">
+            </div>
+          </div>
+       </div> 
+
+<script src="index.js"></script>
+</body>
+
+</html>
