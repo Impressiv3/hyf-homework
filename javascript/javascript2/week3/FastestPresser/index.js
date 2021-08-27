@@ -1,3 +1,5 @@
+// WORKING VERSION CAN BE FOUND AT : http://www.infamous.one/
+
 let player1CircleRadius = 5;
 let player2CircleRadius = 5;
 let player1Score = 0;
@@ -127,29 +129,29 @@ function resetGame() {
 
 function drawPlayer1Circle() {
   if (player1Canvas.getContext) {
-    const ctx = player1Canvas.getContext("2d");
-    const X = player1Canvas.width / 2;
-    const Y = player1Canvas.height / 2;
+    const ctx1 = player1Canvas.getContext("2d");
+    const X1 = player1Canvas.width / 2;
+    const Y1 = player1Canvas.height / 2;
 
-    ctx.beginPath();
-    ctx.arc(X, Y, player1CircleRadius, 0, 2 * Math.PI, false);
-    ctx.lineWidth = 3;
-    ctx.strokeStyle = "#f0ff00";
-    ctx.stroke();
+    ctx1.beginPath();
+    ctx1.arc(X1, Y1, player1CircleRadius, 0, 2 * Math.PI, false);
+    ctx1.lineWidth = 3;
+    ctx1.strokeStyle = "#f0ff00";
+    ctx1.stroke();
   }
 }
 
 function drawPlayer2Circle() {
   if (player2Canvas.getContext) {
-    const ctx = player2Canvas.getContext("2d");
-    const X = player2Canvas.width / 2;
-    const Y = player2Canvas.height / 2;
+    const ctx2 = player2Canvas.getContext("2d");
+    const X2 = player2Canvas.width / 2;
+    const Y2 = player2Canvas.height / 2;
 
-    ctx.beginPath();
-    ctx.arc(X, Y, player2CircleRadius, 0, 2 * Math.PI, false);
-    ctx.lineWidth = 3;
-    ctx.strokeStyle = "#f0ff00";
-    ctx.stroke();
+    ctx2.beginPath();
+    ctx2.arc(X2, Y2, player2CircleRadius, 0, 2 * Math.PI, false);
+    ctx2.lineWidth = 3;
+    ctx2.strokeStyle = "#f0ff00";
+    ctx2.stroke();
   }
 }
 
