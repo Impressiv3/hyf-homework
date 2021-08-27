@@ -2,7 +2,7 @@
 
 // 1: Create an array of movies containing the movies with a short title
 
-let shortestMovieTitles = movies.filter((movie) => movie.title.length < 3);
+const shortestMovieTitles = movies.filter((movie) => movie.title.length < 3);
 console.log(shortestMovieTitles);
 
 //_______________________________________________________________________
@@ -39,7 +39,7 @@ function addTag(movie) {
 
 // 5: First filter the movies array to only contain the movies rated higher than 6.
 
-let bestMovies = movies.filter((movie) => movie.rating > 6).map((movie) => movie.rating);
+const bestMovies = movies.filter((movie) => movie.rating > 6).map((movie) => movie.rating);
 console.log(bestMovies);
 
 //_______________________________________________________________________
@@ -48,7 +48,7 @@ console.log(bestMovies);
 // Surfer, Alien or Benjamin.
 const wordsToLookFor = ["Surfer", "Alien", "Benjamin"];
 
-let numberOfMoviesContaining = movies.filter((movie) =>
+const numberOfMoviesContaining = movies.filter((movie) =>
   wordsToLookFor.some((element) => movie.title.toLowerCase().includes(element.toLowerCase())),
 );
 console.log(numberOfMoviesContaining.length);
@@ -84,7 +84,7 @@ const averageMovieRating = movies
     if (index === array.length - 1) {
       return total / array.length;
     } else {
-      return total;
+      return total.toFixed(2);
     }
   });
 
@@ -94,7 +94,7 @@ console.log(averageMovieRating);
 
 // 9: Count the total number of Good, Average and Bad movies using reduce.
 
-let reduceMe = movies.reduce(
+const reduceMe = movies.reduce(
   function (accumulator, currentItem) {
     if (currentItem.rating >= 7) accumulator.goodMovies += 1;
     if (currentItem.rating >= 4 && currentItem.rating < 7) accumulator.averageMovies += 1;
