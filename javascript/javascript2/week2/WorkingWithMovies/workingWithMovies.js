@@ -24,7 +24,7 @@ console.log(moviesMadeBetween(1980, 1981));
 //_______________________________________________________________________
 
 // 4: Create a new array that has an extra key called tag.
-
+/* 
 movies.forEach((movie) => addTag(movie));
 
 function addTag(movie) {
@@ -34,12 +34,26 @@ function addTag(movie) {
     ? (movie.tag = "Good")
     : (movie.tag = "Average");
 }
+ */
 
+movies = movies.map((movie) => {
+  if (movie.rating <= 4) {
+    movie.tag = "Bad";
+  }
+  if (movie.rating > 4 && movie.rating < 7) {
+    movie.tag = "Average";
+  }
+  if (movie.rating >= 7) {
+    movie.tag = "Good";
+  }
+
+  return movie;
+});
 //_______________________________________________________________________
 
 // 5: First filter the movies array to only contain the movies rated higher than 6.
 
-const bestMovies = movies.filter((movie) => movie.rating > 6).map((movie) => movie.rating);
+const bestMovies = movies.filter((movie) => movie.rating > 6).map((movie) => movie.title);
 console.log(bestMovies);
 
 //_______________________________________________________________________
