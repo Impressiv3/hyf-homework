@@ -18,11 +18,11 @@ const player2Canvas = document.getElementById("player2-canvas");
 const player1Image = document.getElementById("player1-image");
 const player2Image = document.getElementById("player2-image");
 startButton.addEventListener("click", startGame);
-window.addEventListener("load", drawPlayer1Circle);
-window.addEventListener("load", drawPlayer2Circle);
 
 function startGame() {
   resetGame();
+  drawPlayer1Circle();
+  drawPlayer2Circle();
   attachEventListeners();
   showDisplay();
   startCountDownTimer();
