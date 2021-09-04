@@ -28,12 +28,12 @@ img {
 
 #display {
   display: grid;
-  grid-template-columns: repeat( auto-fill , 200px );
-    width: 80%;
+  grid-template-columns: repeat(auto-fill, 200px);
+  width: 80%;
 }
 
 #submit-button {
-  background-color: #4caf50; 
+  background-color: #4caf50;
   border: none;
   color: white;
   padding: 15px 32px;
@@ -43,7 +43,7 @@ img {
   font-size: 16px;
   margin: 10px 6px;
   cursor: pointer;
-  -webkit-transition-duration: 0.4s; 
+  -webkit-transition-duration: 0.4s;
   transition-duration: 0.4s;
 }
 

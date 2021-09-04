@@ -8,11 +8,13 @@
 
 //#region START----------[ TASK 1 ] Create own json file----------------
 
-// own JSON file in the root directory called myOwn.json
+// LOCATED IN ROOT called myOwn.json
 
 //#endregion END---------[ TASK 1 ] Create own json file----------------
 
 //#region START----------[ TASK 2 ] Find a cool API----------------
+
+// LOCATED IN COOL APP DIRECTORY
 
 //#endregion END---------[ TASK 2 ] Find a cool API----------------
 

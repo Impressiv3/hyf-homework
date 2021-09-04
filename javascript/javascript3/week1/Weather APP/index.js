@@ -20,7 +20,7 @@ cityWeatherButton.addEventListener("click", cityWeatherHandler);
 locationWeatherButton.addEventListener("click", locationWeatherHandler);
 
 function cityWeatherHandler() {
-  url = `http://api.openweathermap.org/data/2.5/weather?q=${selectedCity}&units=metric&APPID=b680cb322879f2895f18474a69879817`;
+  url = `http://api.openweathermap.org/data/2.5/weather?q=${selectedCity}&units=metric&APPID=REMOVEDBYUSER`;
   displayWeather(url);
 }
 
@@ -35,7 +35,7 @@ function locationWeatherHandler() {
 function urlPosition(position) {
   currentLatitude = position.coords.latitude.toFixed(2);
   currentLongtitude = position.coords.longitude.toFixed(2);
-  url = `https://api.openweathermap.org/data/2.5/weather?lat=${currentLatitude}&lon=${currentLongtitude}&units=metric&APPID=b680cb322879f2895f18474a69879817`;
+  url = `https://api.openweathermap.org/data/2.5/weather?lat=${currentLatitude}&lon=${currentLongtitude}&units=metric&APPID=REMOVEDBYUSER`;
   displayWeather(url);
 }
 

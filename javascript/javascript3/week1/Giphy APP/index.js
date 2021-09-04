@@ -21,13 +21,8 @@ search.addEventListener("input", () => {
 });
 submitButton.addEventListener("click", displayGifs);
 
-/* async function displayGifs(url) {
-  url = `https://api.giphy.com/v1/gifs/search?api_key=Z0BZP3VDxJ2QCc2H4111Qya9spmbRSr5&q=${searchValue}&limit=${counterValue}&offset=0&rating=g&lang=en`;
-
-} */
-
 function displayGifs() {
-  url = `https://api.giphy.com/v1/gifs/search?api_key=Z0BZP3VDxJ2QCc2H4111Qya9spmbRSr5&q=${searchValue}&limit=${counterValue}&offset=0&rating=g&lang=en`;
+  url = `https://api.giphy.com/v1/gifs/search?api_key=REMOVEDBYUSER&q=${searchValue}&limit=${counterValue}&offset=0&rating=g&lang=en`;
   function status(response) {
     if (response.status >= 200 && response.status < 300) {
       return Promise.resolve(response);
@@ -42,12 +37,12 @@ function displayGifs() {
 
   function processJSON(jsonObject) {
     console.log("Request succeeded with JSON response", jsonObject);
-    jsonObject.data.forEach(image => {
-        const img = document.createElement("IMG");
-        img.src = `${image.images.downsized.url}`
-        display.appendChild(img);
-        console.log(image.url);
-    })
+    jsonObject.data.forEach((image) => {
+      const img = document.createElement("IMG");
+      img.src = `${image.images.downsized.url}`;
+      display.appendChild(img);
+      console.log(image.url);
+    });
   }
 
   function errorJSON(error) {
@@ -56,7 +51,3 @@ function displayGifs() {
 
   fetch(url).then(status).then(getResponse).then(processJSON).catch(errorJSON);
 }
-
-/* https://api.giphy.com/v1/gifs/search?api_key=Z0BZP3VDxJ2QCc2H4111Qya9spmbRSr5&q=cat&limit=25&offset=0&rating=g&lang=en */
-/* api.giphy.com/v1/gifs/search */
-/* Z0BZP3VDxJ2QCc2H4111Qya9spmbRSr5 */
