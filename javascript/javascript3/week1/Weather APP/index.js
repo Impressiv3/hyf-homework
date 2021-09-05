@@ -35,7 +35,7 @@ function locationWeatherHandler() {
 function urlPosition(position) {
   currentLatitude = position.coords.latitude.toFixed(2);
   currentLongtitude = position.coords.longitude.toFixed(2);
-  url = `https://api.openweathermap.org/data/2.5/weather?lat=${currentLatitude}&lon=${currentLongtitude}&units=metric&APPID=REMOVEDBYUSER`;
+  url = `https://api.openweathermap.org/data/2.5/weather?lat=${currentLatitude}&lon=${currentLongtitude}&units=metric&APPID=b680cb322879f2895f18474a69879817`;
   displayWeather(url);
 }
 
@@ -87,3 +87,5 @@ function timeConverter(UNIX_timestamp) {
   const time = date + " " + month + " " + year + " " + hour + ":" + min + ":" + sec;
   return time;
 }
+
+/* b680cb322879f2895f18474a69879817 */

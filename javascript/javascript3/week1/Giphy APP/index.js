@@ -51,3 +51,4 @@ function displayGifs() {
 
   fetch(url).then(status).then(getResponse).then(processJSON).catch(errorJSON);
 }
+
