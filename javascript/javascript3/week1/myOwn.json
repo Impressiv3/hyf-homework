@@ -1,0 +1,18 @@
+{
+	"pokemons": [{
+			"name": "Pikachu",
+			"type": "electric",
+			"weakAgainst": ["psychic", "grass"]
+		},
+		{
+			"name": "Mewtwo",
+			"type": "Psychic",
+			"weakAgainst": ["electric", "fire"]
+		},
+		{
+			"name": "Charmander",
+			"type": "Fire",
+			"weakAgainst": ["water", "grass"]
+		}
+	]
+}
