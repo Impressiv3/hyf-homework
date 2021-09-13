@@ -19,6 +19,7 @@ const getCurrentLocation = () => {
           longtitude: position.coords.longitude,
         }),
       );
+      reject(new Error("There was a misterious error"));
     });
   });
 };
@@ -32,3 +33,4 @@ getCurrentLocation()
     // called if there was an error getting the users location
     console.log(error);
   });
+
