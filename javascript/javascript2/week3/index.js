@@ -38,7 +38,7 @@ const delayButton = document.getElementById("delay-button");
 const locationButton = document.getElementById("location-button");
 
 delayButton.addEventListener("click", () => {
-  delayedLogout("Called after 5 seconds", delayTime);
+  delayedLogout("Called after 1 seconds", delayTime);
 });
 
 /////////////////////////////////////////////////////////////////////////
