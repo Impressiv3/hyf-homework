@@ -6,7 +6,7 @@
 
 // USING PROMISES AND .then
 
-url = "https://api.chucknorris.io/jokes/random";
+const url = "https://api.chucknorris.io/jokes/random";
 
 function delayFetch() {
   setTimeout(() => {
