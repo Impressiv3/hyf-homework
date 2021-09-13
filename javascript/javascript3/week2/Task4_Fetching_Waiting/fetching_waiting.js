@@ -14,11 +14,11 @@ function delayFetch() {
       .then((response) => response.json())
       .then((data) => {
         console.log(data.value);
-      }, 3000)
+      })
       .catch((error) => {
         console.log(error.message);
       });
-  });
+  }, 3000);
 }
 
 delayFetch();
