@@ -12,7 +12,7 @@
 // 1. Log out the text Called 2.5 seconds after the script is loaded.
 
 window.addEventListener("load", (event) => {
-  setTimeout(() => console.log("Called"), 1000);
+  setTimeout(() => console.log("Called"), 2500);
 });
 
 /////////////////////////////////////////////////////////////////////////
@@ -21,7 +21,7 @@ window.addEventListener("load", (event) => {
 // Call the function you have created with some different arguments.
 
 const StringToLog = "This is a string to log out.";
-const delayTime = "1000";
+let delayTime = "2500";
 
 function delayedLogout(stringToLog, delay) {
   setTimeout(() => console.log(stringToLog), delay);
@@ -36,9 +36,10 @@ delayedLogout(StringToLog, delayTime);
 
 const delayButton = document.getElementById("delay-button");
 const locationButton = document.getElementById("location-button");
+delayTime = "5000";
 
 delayButton.addEventListener("click", () => {
-  delayedLogout("Called after 1 seconds", delayTime);
+  delayedLogout("Called after 5 seconds", delayTime);
 });
 
 /////////////////////////////////////////////////////////////////////////
@@ -48,11 +49,11 @@ delayButton.addEventListener("click", () => {
 //  The only thing the third function should do is call the provided parameter function.
 // Try call the third function once with the Earth function and once with the Saturn function.
 
-let earthLogger = () => {
+const earthLogger = () => {
   console.log("earth");
 };
 
-let saturnLogger = () => {
+const saturnLogger = () => {
   console.log("saturn");
 };
 
