@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.css" async>
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <title>HYF-Homework-JS2-Week3</title>
+  </head>
+  <body>
+    <main>
+      <article>
+        <button class="button" id="delay-button" type=button>Click for delayed console message...</button>
+      </article>
+      <article>
+        <button class="button" id="location-button" type=button>Get your location</button>
+        <ul class="coordinate-list" id="coordinate-list">
+        </ul>
+      </article>
+      <article>
+         <div id="googleMap"></div>
+      </article>
+    </main>
+    <script src="index.js"></script>
+ <script src="https://maps.googleapis.com/maps/api/js?key=KEYHASBEENREMOVEDBYME&callback=showGoogleMaps"></script>
+  </body>
+</html>
+
