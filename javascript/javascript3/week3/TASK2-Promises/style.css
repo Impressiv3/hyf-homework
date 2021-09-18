@@ -1,0 +1,7 @@
+li {
+    font-size: 3rem;
+}
+li * li {
+  font-size: 1.9rem;
+  border: 1px solid black;
+}
