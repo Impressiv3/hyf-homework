@@ -1,0 +1,33 @@
+:root {
+  font-family: "Montserrat", sans-serif;
+}
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+}
+
+.screen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#products-screen {
+  width: 50%;
+  height: 100%;
+  background-color: blue;
+}
+
+#shoppingcart-screen {
+  width: 50%;
+  height: 100%;
+  background-color: red;
+}

@@ -1,8 +1,5 @@
 const baseURL = "https://api.github.com/search/repositories?q=user:";
 const repositoryNames = ["JiuTak", "saloumeh-67", "Infamou5"];
-const mainUL = document.getElementById("mainUL");
-
-/* `https://api.github.com/search/repositories?q=user:${repositoryName}` */
 
 const getRepository = async (repositoryName) => {
   try {
@@ -31,6 +28,7 @@ const getRepositories = (async () => {
 })();
 
 const createList = (repository) => {
+  const mainUL = document.getElementById("mainUL");
   const repositoryOwner = document.createElement("LI");
   repositoryOwner.textContent = `${repository.items[0].owner.login}'s Github Repositories. `;
   mainUL.appendChild(repositoryOwner);
@@ -46,15 +44,6 @@ const displayContent = (async () => {
   });
 })();
 
-/* function createList(repository) {
-  const repositoryOwner = document.createElement("LI");
-  repositoryOwner.textContent = `${repository.items[0].owner.login}'s Github Repositories. `;
-  mainUL.appendChild(repositoryOwner);
-  repository.items.forEach((repositoryItem) => {
-    repositoryOwner.appendChild(createItems(repositoryItem));
-  });
-} */
-
 function createItems(repositoryItem) {
   const ul = document.createElement("UL");
   const htmlUrl = document.createElement("LI");
@@ -63,4 +52,4 @@ function createItems(repositoryItem) {
   return ul;
 }
 
-displayContent.catch(error);
+displayContent;
