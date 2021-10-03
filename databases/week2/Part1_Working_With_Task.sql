@@ -1,6 +1,6 @@
 /* Add a task with these attributes: title, description, created, updated, due_date, status_id, user_id*/
-INSERT INTO task (title, description, created, updated, due_date, status_id, user_id) 
-VALUES("Do something", "Description of how to do something", "2021-10-03 12:00:00", "2021-10-03 12:30:00", "2021-10-03 13:00:00", 2, 1);
+INSERT INTO task (title, description, created, updated, due_date, status_id, id) 
+VALUES("Do something", "Do something creative", "2021-10-03 12:00:00", "2021-10-03 12:30:00", "2021-10-03 13:00:00", 2, 1);
 
 /* Change the title of a task */
 UPDATE task SET title="JavaScript learning" WHERE id=10;
