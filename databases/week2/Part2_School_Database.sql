@@ -20,7 +20,4 @@ CREATE TABLE student (
 /* Create an index on the name column of the student table. */
 CREATE UNIQUE INDEX index_student ON student (name);
 /* Add a new column to the class table named status which can only have the following values: not-started, ongoing, finished (hint: enumerations). */
-ALTER TABLE
-  class
-ADD
-  status ENUM ("not-started", "ongoing", "finished");
+ALTER TABLE class ADD status ENUM ("not-started", "ongoing", "finished");
