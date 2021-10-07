@@ -1,15 +1,5 @@
+const defaultCurrency = "DKK";
 const totalPrice = document.getElementById("total-price");
-
-class Currency {
-  constructor(name, rate) {
-    this.name = name;
-    this.rate = rate;
-  }
-}
-
-const USD = new Currency("USD", 7.5);
-const EUR = new Currency("EUR", 8.2);
-const HUF = new Currency("HUF", 46.2);
 
 class Product {
   constructor(name, price) {
@@ -17,8 +7,8 @@ class Product {
     this.price = price;
   }
 
-  convertToCurrency(currency) {
-    console.log(this.price * currency.rate);
+  async convertToCurrency(currency) {
+    return getCurrencyRate(this.price, currency);
   }
 }
 
@@ -34,65 +24,102 @@ class ShoppingCart {
   removeProduct(product) {
     const indexOfProduct = this.products.indexOf(product);
     if (indexOfProduct > -1) {
-      // create a temporary new array of products
-      const tempProducts = this.products.map((product) => product);
-      // remove item from temporary array
-      tempProducts.splice(indexOfProduct, 1);
-      // replace products with the temporary array
-      this.products = tempProducts;
+      this.products.splice(indexOfProduct, 1);
     } else {
       console.log("Can't find item.");
     }
   }
 
   searchProduct(productName) {
-    return this.products.filter((item) => item.name === productName);
+    return this.products.filter((product) =>
+      product.name.toLowerCase().includes(productName.toLowerCase()),
+    );
   }
 
   getTotal() {
-    let total = 0;
-    this.products.forEach((item) => {
-      total = item.price + total;
-    });
-    return total;
+    return this.products.reduce((result, currentProduct) => result + currentProduct.price, 0);
   }
 
   renderProducts() {
+    const fragment = new DocumentFragment();
     const ul = document.createElement("UL");
-    document.body.appendChild(ul);
+    fragment.appendChild(ul);
     this.products.forEach((product) => {
-      let mainLI = document.createElement("LI");
-      ul.appendChild(mainLI);
-      let productUL = document.createElement("UL");
-      mainLI.appendChild(productUL);
-      let nameLI = document.createElement("LI");
-      nameLI.innerHTML = `Procuct: ${product.name}`;
-      productUL.append(nameLI);
-      let priceLI = document.createElement("LI");
-      priceLI.innerHTML = `Price: ${product.price}`;
-      productUL.append(priceLI);
+      createListElement(product);
     });
   }
 
-  getUser = async () => {
+  async getUser(userID) {
     try {
-      let url = `https://jsonplaceholder.typicode.com/users/1`;
-      const response = await fetch(url);
-      if (response.status >= 200 && response.status < 300) {
-        let user = response;
-        user = user.json();
-        return user;
-      } else {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
+      const BASE_URL = "https://jsonplaceholder.typicode.com/users/";
+      const query = userID;
+      return getData(BASE_URL, query);
     } catch (error) {
       console.log(error);
     }
-  };
+  }
+}
+
+function createListElement(productToList) {
+  let mainLI = document.createElement("LI");
+  ul.appendChild(mainLI);
+  let productUL = document.createElement("UL");
+  mainLI.appendChild(productUL);
+  let nameLI = document.createElement("LI");
+  nameLI.textContent = `Procuct: ${productToList.name}`;
+  productUL.append(nameLI);
+  let priceLI = document.createElement("LI");
+  priceLI.textContent = `Price: ${productToList.price}`;
+  productUL.append(priceLI);
+  document.body.appendChild(fragment);
+}
+
+async function getData(BASE_URL, query) {
+  try {
+    const response = await fetch(`${BASE_URL}${query}`);
+    if (response.status >= 200 && response.status < 300) {
+      return response.json();
+    } else {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+async function getCurrencyRate(amountToConvert, convertToCurrency) {
+  const BASE_URL = `https://v6.exchangerate-api.com/v6/84a875e2ff2c28d158651393/latest/`;
+  const query = defaultCurrency;
+  const data = await getData(BASE_URL, query);
+  const currenciesArray = data.conversion_rates;
+  const convertedPrice = (amountToConvert * currenciesArray[`${convertToCurrency}`]).toFixed(2);
+  console.log(`${convertedPrice}  ${convertToCurrency}`);
+  return `${convertedPrice}  ${convertToCurrency}`;
+}
+
+async function displayEverything() {
+  await displayUserInfo();
+  shoppingCart.renderProducts();
+  displayTotalPrice();
+}
+
+async function displayUserInfo() {
+  let user = await shoppingCart.getUser(1);
+  const fragment = new DocumentFragment();
+  const userName = document.createElement("H2");
+  userName.textContent = user.name;
+  fragment.appendChild(userName);
+  document.body.append(fragment);
+}
+
+function displayTotalPrice() {
+  const totalPrice = document.createElement("h2");
+  totalPrice.textContent = `Total: ${shoppingCart.getTotal()}`;
+  const totalPriceToConvert = shoppingCart.getTotal();
+  document.body.appendChild(totalPrice);
 }
 
 const shoppingCart = new ShoppingCart();
-
 const flatscreen = new Product("flat-screen", 1000);
 const tablet = new Product("tablet", 2000);
 const notebook = new Product("notebook", 3000);
@@ -110,21 +137,6 @@ shoppingCart.removeProduct(flatscreen);
 console.log(shoppingCart.getTotal());
 console.log(shoppingCart.searchProduct("tablet"));
 
-async function displayEverything() {
-  let user = await shoppingCart.getUser();
-  const userName = document.createElement("H2");
-  userName.textContent = user.name;
-  document.body.append(userName);
-  shoppingCart.renderProducts();
-  displayTotalPrice();
-}
-
-function displayTotalPrice() {
-  const totalPrice = document.createElement("h2");
-  totalPrice.textContent = `Total: ${shoppingCart.getTotal()}`;
-  document.body.appendChild(totalPrice);
-}
-
+shoppingCart.getUser(1);
 displayEverything();
-
-tablet.convertToCurrency(HUF);
+tablet.convertToCurrency("USD");
