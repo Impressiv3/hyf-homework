@@ -6,5 +6,21 @@
         "description" : "A nice night out eating delicious indian food",
         "createdAt" : "2019/12/7 14:34",
         "price" : 67
+    },
+    {
+        "id" : 2,
+        "title" : "Cheeseburger",
+        "maxNumberOfGuests" : 6,
+        "description" : "Best burger in town yihhaa",
+        "createdAt" : "2019/12/6 15:00",
+        "price" : 20
+    },
+    {
+        "id" : 3,
+        "title" : "Pizza",
+        "maxNumberOfGuests" : 4,
+        "description" : "Delicious pizza",
+        "createdAt" : "2019/12/8 12:00",
+        "price" : 30
     }
 ]

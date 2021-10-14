@@ -5,5 +5,19 @@
     "content": "Best meal ever",
     "mealId": 1,
     "createdAt": 12345
+  },
+  {
+    "id": 2,
+    "numberOfStars": 5,
+    "content": "Best Cheeseburger ever!",
+    "mealId": 2,
+    "createdAt": 12345
+  },
+  {
+    "id": 3,
+    "numberOfStars": 1,
+    "content": "Poor quality pizza",
+    "mealId": 3,
+    "createdAt": 12345
   }
 ]
