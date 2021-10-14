@@ -1,159 +1,127 @@
-# Homework
+# Introduction
+In the first week of the module we will focus on a general introduction starting from what happens when you open a webpage in the browser, an introduction to the underlying protocol HTTP (the roads of the internet) as well as an introduction to what can be build with node.
 
-## Get git ready to work on homework
+# Learning goals
 
-Using the `hyf-homework` repo. In the terminal run `git status`
+- [ ] What happens when you open a webpage?
+- [ ] [HTTP - What is the internet](#What-is-Hypertext-Transfer-Protocol-HTTP)
+  - [ ] Client
+  - [ ] HTTP server
+- [ ] [Introduction to node js](#What-is-Nodejs)
+  - [ ] [What is node and why node?](https://www.youtube.com/watch?v=pU9Q6oiQNd0)
+  - [ ] V8 vs the browser that runs js?
+  - [ ] What can you build with nodejs?
+- [ ] Simple webserver with node js
+  - [ ] npm init
+  - [ ] Tests
+  - [ ] Modules
+    - [ ] Creating and importing using `module.exports` and `require`
+    - [ ] Npm modules
+    - [ ] .gitignore
+  - [ ] Nodemon
+  - [ ] Express - Simple `GET` requests, focus on usage
 
-If there are changes that have not been committed, figure out what to do with those changes
+# Relevant links
 
-- Should they be committed to another branch?
-- Should they be committed to `master`?
-- Should they be discarded?
+- [Preparation](preparation.md)
+- [Homework](homework/readme.md)
+- [Lesson plan](lesson-plan.md)
 
-When you have figured out what to do with the changes and fixed those. Write `git status` again. If it says `nothing to commit, working tree clean`. Then you are ready to create the branch for this weeks homework.
+## Installing node
 
-### Creating the branch
+1. Setup `node` on your computer (skip to step 2 to check):
+   1. Download from: https://nodejs.org/en/download/
+   2. Check if node is installed in your system by running the sollowing commands in Command Promt/PowerShell/Git Bash:
+      - `node -v`
+      - `npm -v`
+      - In either case you should see the version of `node` or `npm` installed.
+      
+## Tests
 
-Using the `hyf-homework` repo write this command
+Testing is an often used tool in software development to better ensure your code does what you want it to. Booting up a server locally and doing manual testing works to some extent, but this is not manageable or scalable as an application grows.
 
-`git checkout master` - You are now on the `master` branch
+To help you get accustomed to what testing looks like, each week's homework includes a set of tests to move you along in the exercises. This provides structure for you to better understand what you need to complete and to help you be sure that you are correctly completing the tasks.
 
-`git checkout -b nodejs-week1`
-
-This will create and checkout the branch so you are ready make commits to it
-
-[This video](https://www.youtube.com/watch?v=XYlgh9hSWtw) can help. On slack use the #git-support channel to ask questions about git
-
-## So why this homework?
-
-Getting comfortable with creating a simple webserver will set us up for having a good basic understanding of what a webserver is and should do.
-
-> Please help us improve and share your feedback! If you find better tutorials or links, please share them by opening a Pull Request.
-
-## Setting up the homework
-
-You are about to start the Node JS homework. You will find the homework in the folder with the name `nodejs/week1`.
-If you dont have the homework folders on your machine please clone the homework repo from here [node js homework](https://github.com/HackYourFuture-CPH/hyf-homework)
-
-Make sure that you have the three weeks node homework folder on your machine.
-See this repo [node js repo](https://github.com/HackYourFuture-CPH/hyf-homework-template/tree/master/nodejs)
-
-Clone down the [node js repo](https://github.com/HackYourFuture-CPH/node.js) locally. Copy the contents of the `nodejs/week1/homework` into your `hyf-homework/nodejs/week1` folder
-
-## Warmup
-
-In the [warmup.js file](https://github.com/HackYourFuture-CPH/node.js/blob/master/week1/homework/warmup.js) add the following functionality.
-
-To run the warmup file, first install the project dependencies with `npm install`. Make sure you are in the `hyf-homework/nodejs/week1/homework` folder!
-
-Now you can run: `nodemon warmup.js`
-
-### Circle calculator
-
-Lets say we are building a calculator specifically made for circles. Let's create the calculator using javascript classes!
-
-Create a class called `Circle`. It should have one property called `radius`.
-
-The `Circle` class should have the following methods:
-
-- getDiameter
-- getCircumference
-- getArea
-
-Instantiate a couple of circles and log out their diameter, circumference and area.
-
-Here is an example:
-
-```js
-const circle = new Circle(10);
-circle.getDiameter(); // 20
-```
-
-## Meal sharing website
-
-In this homework we will be continuing the meal sharing project started in the database class. In this homework we will be working with `meals`, `reviews`, and `reservations`.
-
-## Lets start building
-
-To start the webserver run `npm run dev`. Without touching or adding anything, the organization of the project looks like this:
-
-```
-|-- src
-|   |-- backend
-|   |   |-- app.js
-|   |   |-- server.js
-|   |   |-- data
-|   |   |   |-- meals.json
-|   |   |   |-- reservations.json
-|   |   |   |-- reviews.json
-|-- test
-|   |-- routes.spec.js
-|-- .gitignore
-|-- package.json
-```
-
-**Note:** Add at least one more meal, review, and reservation to the respective data files.
-
-### Tasks
-
-To get a bit of an overview of your homework tasks, run:
+If in doubt, from the week's `homework` directory from which you are completing the exercises, run (after running `npm install`):
 
 `npm test`
 
-If this command doesn't work, ensure all your dependencies are installed correctly (try running `npm install` in the `hyf-homework/nodejs/week1/homework` directory).
+This will give you an idea of the tasks you need to complete.
 
-#### Change index response message
+## What is backend?
 
-Your first task is to change the response message for the index path (`/` route). If you take a look in `app.js` file, you will see that the `/` route returns `asd`. Run `npm test` to see what the message should be, and make the change accordingly.
+In software development, we separate the user experience and utility (the `frontend`) from the code that actually makes it work (the `backend`). The real world contains many examples of this division: take for example an [ATM](../images/atm.jpg). What you can interact with it (press a button or insert a card), you are dealing with the `user interface`; which is the end result of frontend code. However, everything that's needed to make it work like that is found within the device: this is the hardware and software needed to make it work the way it does.
 
-#### Creating routes
+In web development the term backend can be boiled down to 3 components:
 
-Inside the `app.js` file create the following routes using `express`:
+- A `server`: a computer that is connected to other computers, which runs an application (see below) that allows for sharing and managing services (like a calculator or word processor) and resources (like images, text files).
+- A `database`: software that manages and saves sensitive data for later use.
+- An `application`: software that communicates between the server, database and frontend. It contains code that allows it to interact with and manipulate the server, database and other type of software services.
 
-| Route             | Description                                                                                                                                                                                                                                                                                                          |
-| ----------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `/meals`          | Respond with the json for all the `meals`. For each meal, if there are reviews matching it's meal ID, add these reviews to each meal in the form of an array. For meals that do not have any reviews, the "reviews" property will be an empty array. (watch the GIF below to understand how it should be structured) |
-| `/cheap-meals`    | Respond with the json for all the `meals` (including it's reviews) that are cheap (you define what a cheap meal is)                                                                                                                                                                                                  |
-| `/large-meals`    | Respond with the json for all the `meals` (including it's reviews) that can fit lots of people                                                                                                                                                                                                                       |
-| `/meal`           | Respond with the json for a random meal (including it's reviews)                                                                                                                                                                                                                                                     |
-| `/reservations`   | Respond with the json for all `reservations`                                                                                                                                                                                                                                                                         |
-| `/reservation` | Respond with the json for a random reservation                                                                                                                                                                                                                                                                       |
+For more information, read:
+[Basics of backend development](https://www.upwork.com/hiring/development/a-beginners-guide-to-back-end-development/)
+[Getting started with backend development](https://codeburst.io/getting-started-with-backend-development-bfd8299e22e8)
 
-**Remember:** Ensure you haved done a `require` on the meals and reservations json files\_
+When people refer to backend programming, they usually refer to **writing the application** part of the backend: the software that interacts with a server and database, and moves data from one computer to the next. The application consists of code that will be read by a database and/or server, so that they know what to do with the incoming input.
 
-If you have made it this far, all the tests should be be passing.
+Why would we need a backend? There are multiple reasons:
 
-![Meal sharing](https://github.com/HackYourFuture-CPH/node.js/blob/master/week1/assets/meal-sharing.gif)
+- **Security**. We don't want any random user to directly access our sensitive data, without verifying who they are. For example, if you have an online back account then you need to login to verify it's you. The whole process of login and verification is code written in a place that can't be reached so easily.
+- **Performance**. The speed of our user interfaces is greatly dependent upon the server that provides it. The backend contains code that makes sure it optimally makes use of the server's resources (hardware, memory, etc.) to provide the user with the best experience.
+- **Software interactions**. A web application usually makes use of other people's software, web services. The code that communicates with these services and implements it into the frontend is also contained within the backend.
 
-## Hand in Homework:
+For more information, read:
+[Why do we need the backend?](https://www.quora.com/Why-do-we-need-a-back-end-in-web-development-Cant-the-front-end-directly-send-requests-to-the-database)
 
-Watch [this video](https://www.youtube.com/watch?v=XYlgh9hSWtw) for a more detailed go-through of how to hand in homework!
+## What is Node.js?
 
-- Use the branch called `nodejs-week1`
-- Add all your changes to this branch in the `nodejs/week1` folder.
-- Go through the [Homework checklist](#homework-checklist)
-- Create a pull request using the `nodejs-week1` branch
-- Wait for mentor feedback
-- Implement feedback, `add`, `commit` and `push` the changes
-- Now you can merge the changes into `master`
-- When merged you can **share the github link** to your classes slack channel if you are **proud of what you did** 💪
-- Now celebrate 🎉🎉🎉
+Node.js is software that allows you to use JavaScript to write the `application` part of the backend. The application is written in different _.js_ files, and are then read and executed using the _node_ command in the Command Line. For example, `node script.js`.
 
-## Homework checklist
+Read the following article and code along: [Introduction into Node.js](https://codeburst.io/the-only-nodejs-introduction-youll-ever-need-d969a47ef219)
 
-Go over your homework one last time:
+Software builds on other software. Node.js is powerful because it allows us to use software others have written to help build our own unique applications. In Node.js these are called `modules`/`packages`/`dependencies` (can be used interchangeably). An easy way to get access to these is by using the Node Package Manager, also known as `npm`.
 
-- [ ] Does every file run without errors and with the correct results?
-- [ ] Have you used `const` and `let` and avoided `var`?
-- [ ] Do the variable, function and argument names you created follow the [Naming Conventions](https://github.com/HackYourFuture/fundamentals/blob/master/fundamentals/naming_conventions.md)?
-- [ ] Is your code well-formatted (see [Code Formatting](https://github.com/HackYourFuture/fundamentals/blob/master/fundamentals/naming_conventions.md))?
+Read the following article and code along: [A Beginner’s Guide to npm — the Node Package Manager](https://nodesource.com/blog/an-absolute-beginners-guide-to-using-npm/)
 
-## Feedback giving time!
+It is also powerful because we can use the language we already know, JavaScript, to write backend applications. Watch the following video and code along: [Node.js Crash Course](https://www.youtube.com/watch?v=fBNz5xF-Kx4)
 
-Find a student to give feedback using this site: https://hyf-peer-review.herokuapp.com/. The feedback should be given after the homework has been handed in, preferably two days after.
+## The client-server model
 
-Give the review on the PR exactly how the mentors do it! To find the link for the PR ask the person you are reviewing :) You can see how to give feedback on a PR using github [here](https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/commenting-on-a-pull-request)
+The client-server model is one of the most important concepts within web development. The easiest way to explain this concept is by using an analogy.
 
-To help you get started with reviewing we have created [some resources](https://github.com/HackYourFuture-CPH/curriculum/tree/master/review) about giving feedback. Find them
+> Let's say you are hungry and feel like going to a restaurant. The moment you enter the restaurant you are a customer, or in IT terms a `client`. You take a seat and decide to order various things, each order representing a separate `request`: you are requesting an orange juice and requesting a nice, healthy salad. Your requests are heard by the waiter, or in IT terms the `server`. Their job is to listen to your requests and do whatever is necessary to provide you with what you want. The actual services, like cooking the food, making the drinks or doing the dishes are all done by others. However, to the client the end result of these services are all provided by the server. You don't want to know who performs what service, you just want to eat. When the server comes back with whatever you ordered, they provide you with a `response`. This happens whether or not they could fulfill your requests.
 
-Why is it important to give feedback? Because it will make you a [better](https://www.brightspot.com/blog/developer-life-5-reasons-why-the-code-review-process-is-critical-for-developers) [developer](https://www.sitepoint.com/the-importance-of-code-reviews/)
+In web development the same thing happens. The browser is the client, and some computer that has the data you want is the server. Let's say you login to your online bank account. As the client you want to see the amount of money you currently have. The browser sends out a request to the server, who then activates the necessary services (in this example, some kind of database) and returns with a response containing the exact amount of money you currently have in the bank.
+
+Look into the following resources to increase your understanding:
+
+- [The Client Server Model](https://www.youtube.com/watch?v=L5BlpPU_muY)
+- [Client-Server Model & Structure of a Web Application](https://medium.freecodecamp.org/how-the-web-works-part-ii-client-server-model-the-structure-of-a-web-application-735b4b6d76e3)
+
+## What is Hypertext Transfer Protocol (HTTP)?
+
+How HTTP and HTTPS works:
+https://twitter.com/b0rk/status/1159478808946335745/photo/1
+https://twitter.com/b0rk/status/1159812119099060224/photo/1
+
+A big part of making applications that follow the REST architecture is by use of HTTP methods.
+
+If you've every typed in a URL you might've seen the letters HTTP at the beginning of it, i.e. `http://www.hackyourfuture.net`. It stands for **Hypertext Transfer Protocol** and it is the basic way of sending requests and receiving responses.
+
+Like verbal communication, there's the _content_ (WHAT you are saying) and the _style_ (HOW you are saying it). HTTP refers to the \***\*style\*\*** of online communication. How you communicate over the web is done through specific HTTP methods (also called HTTP verbs), that describe what type of request is being made. The most important ones are:
+
+- **GET**. This type of request is only about getting data from the server. Whenever a user enters a new webpage, this usually means a GET request gets send to the server to get the required files to display that webpage. All other data in the website stays unaffected.
+- **POST**. This type of request allows the client to submit new data to the server. Generally speaking, its purpose is to store this new data into a database, or manipulate it and later return it back to the client.
+- **PUT**. This type of request allows the client to update existing data, which is already present in the client. The data is edited and then send back to the server, similar to the POST request but more semantic.
+- **DELETE**. This type of request tells the server to delete a particular set of data or resources.
+
+Why do you need to know all of this? HTTP is the foundation of how client-server interactions work on the web. It's important to have a universal policy that everyone holds on to, in order to have fast and effective online communication.
+
+If you really wanna get into what happens in the network layer, check out this: https://jvns.ca/networking-zine.pdf Its really nicely done!
+
+Look into the following resources to increase your understanding:
+
+- [The Http and the Web: Http explained](https://www.youtube.com/watch?v=eesqK59rhGA)
+- [Basics concepts of web applications](https://www.youtube.com/watch?v=RsQ1tFLwldY)
+
+- [@NoerGitKat](https://www.github.com/NoerGitKat)
