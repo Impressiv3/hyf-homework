@@ -22,5 +22,13 @@
         "description" : "Delicious pizza",
         "createdAt" : "2019/12/8 12:00",
         "price" : 30
+    },    
+    {
+        "id" : 4,
+        "title" : "Durum Shawarma",
+        "maxNumberOfGuests" : 8,
+        "description" : "Best Shawarma in town",
+        "createdAt" : "2019/11/4 19:00",
+        "price" : 25
     }
 ]
