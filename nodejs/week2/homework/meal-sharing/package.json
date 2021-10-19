@@ -11,8 +11,8 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "jest": "^26.2.2",
-    "nodemon": "^1.19.1",
+    "jest": "^27.3.1",
+    "nodemon": "^2.0.14",
     "superagent": "^5.3.1",
     "supertest": "^4.0.2"
   },
