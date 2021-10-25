@@ -3,22 +3,23 @@ const router = express.Router();
 const meals = require("./../data/meals.json");
 
 /* Respond with the json for all the meals */
-/* router.get("/", async (req, res, next) => {
+/* router.get("/", async (req, res) => {
   try {
     res.json(meals);
-    next()
   } catch (error) {
     throw error;
   }
 });  */
 
 /* Respond with the json for the meal with the corresponding id */
-router.get("/:id", async (req, res, next) => {
+router.get("/:id", async (req, res) => {
   try {
-    res.json(getMeal(parseInt(req.params.id)));
-    next();
+    const result = getMeal(parseInt(req.params.id));
+    Object.keys(result).length === 0
+      ? res.status(404).json({ error: `${req.params.id} not found` })
+      : res.status(200).json(result);
   } catch (error) {
-    throw error;
+    throw new Error();
   }
 });
 
@@ -29,29 +30,25 @@ const getMeal = (id) => {
 router.get("/", async (req, res) => {
   const { maxPrice, title, createdAfter, limit } = req.query;
   let filteredMeals = meals;
+
   if (Object.keys(req.query).length === 0) {
   } else {
-    if (maxPrice) {
+    if (maxPrice)
       filteredMeals = filteredMeals.filter((filteredMeal) => filteredMeal.price <= maxPrice);
-    } else {
-    }
-    if (title) {
+
+    if (title)
       filteredMeals = filteredMeals.filter((filteredMeal) =>
         filteredMeal.title.toLowerCase().includes(title),
       );
-    } else {
-    }
-    if (createdAfter) {
+
+    if (createdAfter)
       filteredMeals = filteredMeals.filter(
         (filteredMeal) => new Date(filteredMeal.createdAt) > new Date(createdAfter),
       );
-    } else {
-    }
-    if (limit) {
-      filteredMeals = filteredMeals.slice(0, parseInt(limit));
-    }
+
+    if (limit) filteredMeals = filteredMeals.slice(0, parseInt(limit));
   }
-  res.json(filteredMeals);
+  res.status(200).json(filteredMeals);
 });
 
 module.exports = router;
