@@ -28,27 +28,31 @@ const getMeal = (id) => {
 };
 
 router.get("/", async (req, res) => {
-  const { maxPrice, title, createdAfter, limit } = req.query;
-  let filteredMeals = meals;
+  try {
+    const { maxPrice, title, createdAfter, limit } = req.query;
+    let filteredMeals = meals;
 
-  if (Object.keys(req.query).length === 0) {
-  } else {
-    if (maxPrice)
-      filteredMeals = filteredMeals.filter((filteredMeal) => filteredMeal.price <= maxPrice);
+    if (Object.keys(req.query).length === 0) {
+    } else {
+      if (maxPrice)
+        filteredMeals = filteredMeals.filter((filteredMeal) => filteredMeal.price <= maxPrice);
 
-    if (title)
-      filteredMeals = filteredMeals.filter((filteredMeal) =>
-        filteredMeal.title.toLowerCase().includes(title),
-      );
+      if (title)
+        filteredMeals = filteredMeals.filter((filteredMeal) =>
+          filteredMeal.title.toLowerCase().includes(title),
+        );
 
-    if (createdAfter)
-      filteredMeals = filteredMeals.filter(
-        (filteredMeal) => new Date(filteredMeal.createdAt) > new Date(createdAfter),
-      );
+      if (createdAfter)
+        filteredMeals = filteredMeals.filter(
+          (filteredMeal) => new Date(filteredMeal.createdAt) > new Date(createdAfter),
+        );
 
-    if (limit) filteredMeals = filteredMeals.slice(0, parseInt(limit));
+      if (limit) filteredMeals = filteredMeals.slice(0, parseInt(limit));
+    }
+    res.status(200).json(filteredMeals);
+  } catch (error) {
+    throw error();
   }
-  res.status(200).json(filteredMeals);
 });
 
 module.exports = router;
