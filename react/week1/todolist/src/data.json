@@ -1,0 +1,18 @@
+{
+   "todos" : 
+   [
+       {
+        "description": "Wake up",
+        "deadline": "2021-11-10 07:00"
+       }, 
+       {
+        "description": "Go to work",
+        "deadline": "2021-11-10 09:00"
+       },
+       {
+        "description": "Go to sleep",
+        "deadline": "2021-11-10 22:00"
+       }
+   ]
+}
+
