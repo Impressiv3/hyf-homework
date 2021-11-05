@@ -22,7 +22,7 @@ router.get("/:id", async (req, res) => {
 });
 
 const getReservation = (id) => {
-  return reservations.filter((reservation) => reservation.id === id);
+  return reservations.find((reservation) => reservation.id === id);
 };
 
 module.exports = router;
