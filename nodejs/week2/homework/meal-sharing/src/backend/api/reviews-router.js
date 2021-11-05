@@ -22,7 +22,7 @@ router.get("/:id", async (req, res) => {
 });
 
 const getReview = (id) => {
-  return reviews.filter((review) => review.id === id);
+  return reviews.find((review) => review.id === id);
 };
 
 module.exports = router;
