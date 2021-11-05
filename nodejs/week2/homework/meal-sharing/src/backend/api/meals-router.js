@@ -24,7 +24,7 @@ router.get("/:id", async (req, res) => {
 });
 
 const getMeal = (id) => {
-  return meals.filter((meal) => meal.id === id);
+  return meals.find((meal) => meal.id === id);
 };
 
 router.get("/", async (req, res) => {
@@ -32,14 +32,13 @@ router.get("/", async (req, res) => {
     const { maxPrice, title, createdAfter, limit } = req.query;
     let filteredMeals = meals;
 
-    if (Object.keys(req.query).length === 0) {
-    } else {
+    if (Object.keys(req.query).length != 0) {
       if (maxPrice)
         filteredMeals = filteredMeals.filter((filteredMeal) => filteredMeal.price <= maxPrice);
 
       if (title)
         filteredMeals = filteredMeals.filter((filteredMeal) =>
-          filteredMeal.title.toLowerCase().includes(title),
+          filteredMeal.title.toLowerCase().includes(title.toString().toLowerCase()),
         );
 
       if (createdAfter)
