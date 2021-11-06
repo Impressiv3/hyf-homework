@@ -19,7 +19,7 @@ router.get("/:id", async (req, res) => {
       ? res.status(404).json({ error: `${req.params.id} not found` })
       : res.status(200).json(result);
   } catch (error) {
-    throw new Error();
+    res.status(400).json(error.toString())
   }
 });
 
@@ -50,7 +50,7 @@ router.get("/", async (req, res) => {
     }
     res.status(200).json(filteredMeals);
   } catch (error) {
-    throw error();
+    res.status(400).json(error.toString())
   }
 });
 
