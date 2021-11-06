@@ -7,7 +7,7 @@ const meals = require("./../data/meals.json");
   try {
     res.json(meals);
   } catch (error) {
-    throw error;
+   res.status(400).json(error.toString())
   }
 });  */
 
