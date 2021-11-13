@@ -1,13 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import ToDoItem from "./ToDoItem";
 
 
 
-export default function ToDoList({ todos }) {
+export default function ToDoList({ todos, setTodos }) {
   return (
     <div className="todo-container">
       <ul className="todo-list"></ul>
-      {todos.map((todo) => <ToDoItem key={todo.id} description={todo.description}/>)}
+      {todos.map((todo) => <ToDoItem key={todo.id} todos={todos} description={todo.description}/>)}
     </div>
   );
 }

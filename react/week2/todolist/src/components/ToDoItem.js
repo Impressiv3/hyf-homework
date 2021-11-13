@@ -1,15 +1,13 @@
 import React from "react";
 
-export default function TodoItem({ description }) {
+export default function TodoItem({ description, completed, todo, todos, setToDos }) {
   return (
-    <div className="todo-item">
+    <div className='todo-item'>
       <li>
-        <h2>{description}</h2>
-        <input type="checkbox"/>
+        {description}
+        <input type='checkbox' />
         <button>Delete</button>
       </li>
     </div>
   );
 }
-
-

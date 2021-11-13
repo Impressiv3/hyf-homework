@@ -9,14 +9,15 @@ export default function Form({ todos, setTodos, inputText, setInputText }) {
     e.preventDefault();
     setTodos([
       ...todos,
-      { id: Math.floor(Math.random() * 10000), description: { inputText }, completed: false },
+      { id: Math.floor(Math.random() * 10000), description: inputText , completed: false },
     ]);
-    setInputText("");
+     setInputText("");
   };
 
   return (
     <>
       <form>
+        <h2>{inputText}</h2>
         <input type='text' placeholder='Add something to do...' value={inputText} onChange={inputTextHandler}></input>
         <button type='submit' onClick={submitTodoHandler}>
           Add

@@ -7,7 +7,11 @@
 }
 
 .todo-item {
-  border:  1px solid black;
   display: flex;
+  width: 100%;
+  background: grey;
+  margin-bottom: 2rem;
+  border: 1px solid black;
 }
+
 
