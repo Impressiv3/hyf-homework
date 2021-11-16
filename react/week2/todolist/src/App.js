@@ -1,25 +1,22 @@
-import { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Timer from "./components/Timer";
-import Form from "./components/Form";
-import ToDoList from "./components/ToDoList";
-import todosData from "./components/todosData";
-import './App.css';
+import "./App.css";
+import todosData from "./todosData.json";
 
-function App() {
-  const [inputText, setInputText] = useState("")
-  const [todos, setTodos] = useState([...todosData]);
-  
+export default function App() {
+  const [todoData, setTodoData] = useState([]);
+
+  useEffect(() => {
+      setTodoData(prev => [...prev, todosData.ToDoData]);
+  }, []);
+
   return (
-    <div className="App">
-      <Timer/>
+    <div className='App'>
       <header>
+        <Timer />
         <h1>To Do List</h1>
       </header>
-      
-       <Form todos={todos} setTodos={setTodos} inputText={inputText} setInputText={setInputText}/>
-       <ToDoList todos={todos} setTodos={setTodos}/>
+      <main></main>
     </div>
   );
 }
-
-export default App;
