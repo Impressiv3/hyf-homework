@@ -24,5 +24,5 @@ export default function Timer() {
     return () => stopTimer();
   });
 
-  return <h3>You have spent {timer} seconds on this webpage</h3>;
+  return <h3>You have spent {timer} seconds on this webpage.</h3>;
 }
