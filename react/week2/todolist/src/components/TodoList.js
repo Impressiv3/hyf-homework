@@ -13,7 +13,7 @@ export default function ToDoList() {
   return (
     <div>
       {<TodoForm todos={todos} setTodos={setTodos}/>}
-      <ul>{todos.length <= 0 ? <h1>Nothing to do</h1> : RenderTodoListItems()}</ul>
+      {todos.length <= 0 ? <h1>Nothing to do</h1> : <ul>RenderTodoListItems()</ul>}
     </div>
   );
 }
