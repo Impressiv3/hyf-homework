@@ -1,11 +1,14 @@
+import React from "react";
 import "./App.css";
-import React, { useState, useEffect } from "react";
-import TodoList from "./components/TodoList"
+
 export default function App() {
- 
   return (
-    <>
-      <TodoList />
-    </>
+    <div className='App'>
+      <header>
+        <h1>To Do List</h1>
+      </header>
+      <main>
+      </main>
+    </div>
   );
 }
