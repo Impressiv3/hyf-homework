@@ -4,11 +4,7 @@ import TodoForm from "./TodoForm";
 import TodoItem from "./TodoItem";
 
 export default function ToDoList() {
-  const [todos, setTodos] = useState([]);
-
-  useEffect(() => {
-    setTodos([...data]);
-  }, []);
+  const [todos, setTodos] = useState([...data]);
 
   function RenderTodoListItems() {
     return todos.map((todo) => <TodoItem key={todo.id} todo={todo} setTodos={setTodos} />);
