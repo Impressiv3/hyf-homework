@@ -6,7 +6,7 @@ export default function TodoList(props) {
   return (
     <ul>
       {todos ? (
-        todos.map((todo) => <TodoListItem key={todo.id} todo={todo} />)
+        todos.map((todo) => <TodoListItem key={todo.id} todo={todo} setTodos={setTodos} />)
       ) : (
         <li>You have nothing to do</li>
       )}
