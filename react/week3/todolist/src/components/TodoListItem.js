@@ -1,12 +1,10 @@
 import React, { useState } from "react";
 
 export default function TodoListItem(props) {
-  const { todo, todos, setTodos } = props;
+  const { todo, todos, setTodos, setMessage } = props;
+  const { id, description, deadline, completed } = todo;
   const [isEditModeOn, setIsEditModeOn] = useState(false);
-  const [todoListItemForm, setTodoListItemForm] = useState({
-    description: todo.description,
-    deadline: todo.deadline,
-  });
+  const [editedDescription, setEditedDescription] = useState();
 
   function toggleCompleted() {
     setTodos((prev) => {
@@ -20,116 +18,83 @@ export default function TodoListItem(props) {
     });
   }
 
-  function toggleEditMode() {
-    setIsEditModeOn((prev) => !prev);
-  }
-
-  function saveAndToggleEditmode() {
-    setTodos((prev) => {
-      const newTodos = prev;
-      return newTodos.map((item) => {
-        if (item.id === todo.id) {
-          return { ...item, description: todoListItemForm.description };
-        }
-        return item;
-      });
-    });
-
-    setIsEditModeOn((prev) => !prev);
-  }
-
   function handleRemoveClick(e) {
     setTodos((prev) => {
       const newTodos = prev.filter((item) => item.id !== todo.id);
+      setMessage(`${todo.description} has been removed.`);
       return newTodos;
     });
   }
 
-  function handleFormChange(e) {
-    setTodoListItemForm({ ...todoListItemForm, [e.target.name]: e.target.value });
-    console.log(todoListItemForm)
+  function toggleEditMode() {
+    setEditedDescription(todo.description);
+    setMessage("Edit your todo");
+    setIsEditModeOn((prev) => !prev);
   }
 
-  function renderTodoListItems() {
-    return (
-      <li>
-        {isEditModeOn ? (
-          <input
-            type='text'
-            name='description'
-            onChange={handleFormChange}
-            value={todoListItemForm.description}
-          ></input>
-        ) : (
-          <p
-            style={{
-              textDecorationLine: todo.completed ? "line-through" : "none",
-            }}
-          >
-            Description: {todo.description}
-          </p>
-        )}
-        <p>Deadline: {new Date(todo.deadline).toISOString().split("T")[0]}</p>
-        {isEditModeOn ? null : (
-          <input
-            type='checkbox'
-            name='completed'
-            checked={todo.completed}
-            onChange={toggleCompleted}
-          ></input>
-        )}
-        {
-          <button type='button' onClick={isEditModeOn ? toggleEditMode : saveAndToggleEditmode}>
-            {isEditModeOn ? "Save" : "Edit"}
-          </button>
-        }
-        <button className='button' type='button' onClick={handleRemoveClick}>
-          Remove
-        </button>
-      </li>
-    );
+  function saveAndToggleEditmode() {
+    if (editedDescription === "") {
+      setEditedDescription(todo.description);
+      setMessage("Todo cannot be empty.");
+    } else {
+      setTodos((prev) => {
+        const newTodos = prev;
+        return newTodos.map((item) => {
+          if (item.id === todo.id) {
+            return { ...item, description: editedDescription };
+          }
+          return item;
+        });
+      });
+      setMessage("Your todo has been updated");
+      setIsEditModeOn((prev) => !prev);
+    }
   }
 
-  return <>{renderTodoListItems()}</>;
+  function updateEditedDescription(e) {
+    e.preventDefault();
+    setEditedDescription(e.target.value);
+  }
 
-  /*   return (
-    <li>
+  return (
+    <div>
       {isEditModeOn ? (
         <input
-          type='text'
-          name='description'
-          onChange={handleFormChange}
-          value={todoListItemForm.description}
+          type="text"
+          name="description"
+          value={editedDescription}
+          onChange={updateEditedDescription}
         ></input>
       ) : (
         <p
           style={{
-            textDecorationLine: todo.completed ? "line-through" : "none",
+            textDecorationLine: completed ? "line-through" : "none"
           }}
         >
-          Description: {todo.description}
+          Description: {description}
         </p>
       )}
-
-      <p>Deadline: {new Date(todo.deadline).toISOString().split("T")[0]}</p>
-      <input
-        type='checkbox'
-        name='completed'
-        checked={todo.completed}
-        onChange={toggleCompleted}
-      ></input>
-      {isEditModeOn ? (
-        <button type='button' onClick={saveAndToggleEditmode}>
-          Save
-        </button>
-      ) : (
-        <button type='button' onClick={toggleEditMode}>
-          Edit
-        </button>
+      <p>Deadline: {new Date(deadline).toISOString().split("T")[0]}</p>
+      {isEditModeOn ? null : (
+        <>{ completed ? "Completed" : "Active"}:
+        <input
+          type="checkbox"
+          name="completed"
+          checked={completed}
+          onChange={toggleCompleted}
+        ></input></>
       )}
-      <button className='button' type='button' onClick={handleRemoveClick}>
+      {
+        <button
+          type="button"
+          onClick={isEditModeOn ? saveAndToggleEditmode : toggleEditMode}
+        >
+          {isEditModeOn ? "Save" : "Edit"}
+        </button>
+      }
+      <button className="button" type="button" onClick={handleRemoveClick}>
         Remove
       </button>
-    </li>
-  ); */
+    </div>
+  );
 }

@@ -1,4 +1,3 @@
 export default function TodoMessage({ message }) {
-    return <h2>{message}</h2>;
-  }
-  
+  return <div className="todo-message">{message}</div>;
+}

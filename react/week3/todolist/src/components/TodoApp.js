@@ -4,11 +4,12 @@ import TodoList from "./TodoList";
 import TodoMessage from "./TodoMessage";
 
 export default function TodoApp() {
-  const API = "https://gist.githubusercontent.com/benna100/391eee7a119b50bd2c5960ab51622532/raw";
+  const API =
+    "https://gist.githubusercontent.com/benna100/391eee7a119b50bd2c5960ab51622532/raw";
   const DEFAULT_QUERY = "";
 
   const [todos, setTodos] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState({ error: null });
   const [message, setMessage] = useState("App started");
 
@@ -17,7 +18,7 @@ export default function TodoApp() {
   }, []);
 
   function fetchData() {
-    setLoading(true);
+    setIsLoading(true);
     setMessage("Loading...");
     fetch(API + DEFAULT_QUERY)
       .then((response) => {
@@ -33,23 +34,35 @@ export default function TodoApp() {
             ...data.map((item) => ({
               ...item,
               deadline: new Date(item.deadline),
-              completed: false,
-            })),
+              completed: false
+            }))
           ]),
-        setLoading(false),
-        setMessage("Data loaded"),
+        setIsLoading(false),
+        setMessage("Data loaded")
       )
-      .catch((error) => setError({ error: error.message }), setLoading(false));
+      .catch((error) => setError({ error: error }), setIsLoading(false));
   }
 
   return (
     <div>
-      <TodoForm todos={todos} setTodos={setTodos} />
-      {error.error !== null ? (
-        <p>An error has occurred while loading your data</p>
-      ) : (
-        <TodoList todos={todos} setTodos={setTodos} />
-      )}
+      <TodoForm todos={todos} setTodos={setTodos} setMessage={setMessage} />
+      {(() => {
+        if (isLoading) {
+          return <p>Gathering your data, please wait...</p>;
+        } else {
+          if (error.error !== null) {
+            return <p>There was an error while trying to load data</p>;
+          } else {
+            return (
+              <TodoList
+                todos={todos}
+                setTodos={setTodos}
+                setMessage={setMessage}
+              />
+            );
+          }
+        }
+      })()}
       <TodoMessage message={message} />
     </div>
   );
