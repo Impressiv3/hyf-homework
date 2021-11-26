@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import TodoForm from "./TodoForm";
 import TodoList from "./TodoList";
 import TodoMessage from "./TodoMessage";
-import { DateTime } from "luxon";
 
 export default function TodoApp() {
   const API = "https://gist.githubusercontent.com/benna100/391eee7a119b50bd2c5960ab51622532/raw";
@@ -33,7 +32,6 @@ export default function TodoApp() {
           setTodos([
             ...data.map((item) => ({
               ...item,
-              /*     deadline: DateTime.fromISO(item.deadline), */
               deadline: new Date(item.deadline),
               completed: false,
             })),

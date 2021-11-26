@@ -35,6 +35,7 @@ export default function TodoForm(props) {
             name='description'
             value={formState.description}
             onChange={handleFormChange}
+            required
           ></input>
           <label htmlFor='deadline'>Deadline :</label>
           <input

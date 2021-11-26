@@ -47,9 +47,52 @@ export default function TodoListItem(props) {
 
   function handleFormChange(e) {
     setTodoListItemForm({ ...todoListItemForm, [e.target.name]: e.target.value });
+    console.log(todoListItemForm)
   }
 
-  return (
+  function renderTodoListItems() {
+    return (
+      <li>
+        {isEditModeOn ? (
+          <input
+            type='text'
+            name='description'
+            onChange={handleFormChange}
+            value={todoListItemForm.description}
+          ></input>
+        ) : (
+          <p
+            style={{
+              textDecorationLine: todo.completed ? "line-through" : "none",
+            }}
+          >
+            Description: {todo.description}
+          </p>
+        )}
+        <p>Deadline: {new Date(todo.deadline).toISOString().split("T")[0]}</p>
+        {isEditModeOn ? null : (
+          <input
+            type='checkbox'
+            name='completed'
+            checked={todo.completed}
+            onChange={toggleCompleted}
+          ></input>
+        )}
+        {
+          <button type='button' onClick={isEditModeOn ? toggleEditMode : saveAndToggleEditmode}>
+            {isEditModeOn ? "Save" : "Edit"}
+          </button>
+        }
+        <button className='button' type='button' onClick={handleRemoveClick}>
+          Remove
+        </button>
+      </li>
+    );
+  }
+
+  return <>{renderTodoListItems()}</>;
+
+  /*   return (
     <li>
       {isEditModeOn ? (
         <input
@@ -88,27 +131,5 @@ export default function TodoListItem(props) {
         Remove
       </button>
     </li>
-  );
+  ); */
 }
-
-/*
-if editON show: inputfield + buttons , editOff show: description + deadline + buttons
-things to always show, buttons edit/update + delete
-
-
-    <li>
-      isEditModeOn
-      ? <input type='text' value={todoListItemForm.description} /> 
-      :
-      <p
-        style={{
-          textDecorationLine: todo.completed ? "line-through" : "none",
-        }}
-      >
-        Description: {todo.description}{" "}
-      </p>
-      <p>Deadline: {new Date(todo.deadline).toISOString().split("T")[0]}</p>
-      
-    </li>
-
-*/
