@@ -6,7 +6,7 @@ export default function RepositoryList() {
   const { repositories } = useContext(GlobalStateContext);
   return (
     <ul>
-      {repositories.lenght <= 0 ? (
+      {repositories.length <= 0 ? (
         <li>There are no results</li>
       ) : (
         repositories.map((repo) => <RepositoryListItem key={repo.id} repo={repo} />)
